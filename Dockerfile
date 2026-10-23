@@ -1,0 +1,31 @@
+FROM node:22-alpine AS frontend-build
+
+WORKDIR /app/frontend
+
+COPY frontend/package*.json ./
+RUN npm ci
+
+COPY frontend/ ./
+RUN npm run build
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY agents/ ./agents/
+COPY backend/ ./backend/
+COPY database/ ./database/
+COPY sandbox/ ./sandbox/
+COPY tools/ ./tools/
+COPY init_db.py ./
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist/
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

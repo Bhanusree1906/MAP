@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#737686",
+          "background": "#f8f9ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary-container": "#8a4cfc",
+          "on-primary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed": "#eaddff",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "inverse-surface": "#213145",
+          "surface-variant": "#d3e4fe",
+          "tertiary": "#005a89",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "error": "#ba1a1a",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "secondary-fixed-dim": "#d2bbff",
+          "surface-container-high": "#dce9ff",
+          "surface-container": "#e5eeff",
+          "inverse-on-surface": "#eaf1ff",
+          "on-tertiary-container": "#e7f2ff",
+          "error-container": "#ffdad6",
+          "surface-tint": "#0053db",
+          "primary-container": "#2563eb",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed": "#00174b",
+          "primary-fixed-dim": "#b4c5ff",
+          "tertiary-fixed-dim": "#93ccff",
+          "outline-variant": "#c3c6d7",
+          "tertiary-container": "#0073ae",
+          "on-secondary-container": "#fffbff",
+          "on-surface": "#0b1c30",
+          "on-surface-variant": "#434655",
+          "on-secondary-fixed": "#25005a",
+          "secondary": "#712ae2",
+          "on-background": "#0b1c30",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed": "#001d31",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-low": "#eff4ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-lg": "16px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-md": "12px",
+          "inspector-width": "380px",
+          "space-xl": "20px",
+          "space-sm": "8px",
+          "sidebar-expanded": "240px",
+          "space-2xs": "2px",
+          "sidebar-collapsed": "48px",
+          "space-2xl": "24px",
+          "space-3xl": "32px"
+        },
+        "fontFamily": {
+          "mono-xs": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "mono-md": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-sm": ["Inter"],
+          "mono-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+          "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "mono-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "headline-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "mono-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-sidebar-expanded bg-surface-container-low z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="Maverick Agent Pipeline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X3LI9T7BP7lvUnwQ9Bzr6dLKIWbjLB3s-whXCiJ0NCplB9SqQk2L_hq1o1zRiYesk5UW16ZQLTqHaHcrI-sNezK2ejgMoAAjG7quu8z-KAgzU2a5xW07mmgxBj54N1B-qV5r4phpr_9F_R5enRBC0xMk7AZ1_dqK190d9XE0hH59xRVNaW2F6v_CLR-w3_o_KbG54B9GNJZBu3Bh2SMd7Tp5zS0LFlhLVkVsNhxmtcIBNZmR19HIF5-Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Maverick</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Pipeline</span></div></div><span class="px-space-xs py-space-2xs bg-surface-variant font-mono-xs text-mono-xs text-on-surface font-medium rounded-lg">v2.4</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-primary text-[18px]">corporate_fare</span><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-on-surface font-medium truncate">Acme Global Delivery</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">Enterprise Prod</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div><nav class="flex flex-col gap-space-2xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-md text-label-md">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">layers</span><span class="font-label-md text-label-md">Projects</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">6</span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-xl transition-colors bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]" data-path="ticket-browser" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">Ticket Browser</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">14</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pipeline-runs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-label-md text-label-md">Pipeline Runs</span></div><div class="flex items-center gap-space-2xs px-space-xs py-space-2xs bg-surface-variant rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-mono-xs text-mono-xs text-primary">3</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="skills-catalog" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">neurology</span><span class="font-label-md text-label-md">Skills Catalog</span></div><span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">2</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="connections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-md text-label-md">Connections</span></div><span class="w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings-audit" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">security</span><span class="font-label-md text-label-md">Settings / Audit</span></div></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="font-mono-xs text-mono-xs text-on-surface">SFDX & Codex</span></div><span class="font-mono-xs text-mono-xs text-on-surface-variant">v4.1</span></div><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[14px]">database</span><span class="font-mono-xs text-mono-xs text-on-surface">Vector Store</span></div><span class="font-mono-xs text-mono-xs text-tertiary font-medium">Synced</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant px-space-xs"><div class="flex items-center gap-space-2xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Operational</span></div><a class="font-label-sm text-label-sm hover:text-on-surface" href="#">Docs</a></div></div></aside><div class="pl-sidebar-expanded"><header class="fixed top-0 left-sidebar-expanded right-0 h-14 bg-surface/80 backdrop-blur-xl z-30 flex items-center justify-between px-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="text-on-surface font-medium">Maverick</span><span class="text-outline-variant">/</span><span class="text-on-surface">Console</span></div><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search tickets, runs, PRs...</span><kbd class="font-mono-xs text-mono-xs bg-surface px-space-xs py-space-2xs rounded text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-xl"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2 Active Runs</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">· $14.28 est</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-[0_1px_4px_rgba(37,99,235,0.2)]" type="button"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Start Pipeline Run</span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg relative hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(0,0,0,0.06)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqebjczDE5fgYNndNkNdGB8S-a3Z7rXVtrAZDnMCXt7HoWGAkfCfMJ3LdzAdIDxaonGmM5X0ioj9SorhsEXsKcbo8BO6tX1lFxXv_C8FGcQYj66sg6j9rkmdS-zDx5mxPAExIpXCzyRe48GDItvTehm6Yg5Pwk8N_x4cAyQbOruI_SIK-euVgOlcjSNZxFKLlDZbdhVZvodMIW1o6X4LqUnoWa3jrm4ig8__Pcd69DhJQEqbfthupj"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-mono-xs text-mono-xs text-on-surface-variant leading-tight">Staff AI Lead</span></div></div></div></header><main class="w-full pt-14 px-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full pb-space-3xl">
+<!-- Top Context & Ingestion Command Header -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md py-space-lg">
+<div class="flex flex-col gap-space-2xs min-w-0">
+<div class="flex items-center gap-space-xs font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Maverick</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Ticket Ingestion</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-medium">Manual Ticket Dispatch</span>
+</div>
+<div class="flex items-center gap-space-md mt-space-2xs flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">Manual Ticket Ingestion</h1>
+<div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-full shadow-sm" title="Direct Jira webhook sync unavailable for this tenant or project">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-mono-xs text-mono-xs text-on-surface font-medium">Air-Gapped Ingestion Active</span>
+<span class="material-symbols-outlined text-outline text-[14px]">shield</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs max-w-3xl">
+        Register offline work specifications, input deterministic acceptance criteria, and dispatch autonomous agent pipelines within isolated or firewall-restricted environments.
+      </p>
+</div>
+<!-- Global Header CTA Actions -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container-lowest text-on-surface-variant rounded-xl font-label-md text-label-md hover:text-on-surface hover:bg-surface-container-high transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save Draft</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container-lowest text-on-surface-variant rounded-xl font-label-md text-label-md hover:text-on-surface hover:bg-surface-container-high transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">fact_check</span>
+<span>Validate Spec AST</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>Create Pipeline Run</span>
+</button>
+</div>
+</div>
+<!-- Primary Two-Column Split Architecture -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Identification, Markdown Spec, and Reference Payload (65% -> 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Panel 1: Work Item Identification & Metadata -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">badge</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">1. Ticket Identification & Context</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant bg-surface-container px-space-xs py-space-2xs rounded">MVK-AIRGAP-INGEST</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- Target Project Selector -->
+<div class="md:col-span-6 flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Target Project Repository</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-outline text-[16px]">folder_special</span>
+<select class="w-full pl-8 pr-space-md py-1.5 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-xl appearance-none focus:outline-none focus:bg-surface transition-colors cursor-pointer shadow-inner">
+<option selected="">Lead Priority Console (salesforce-lead-console)</option>
+<option>CRM Platform Core (sfdx-crm-core)</option>
+<option>Apex Payment Ingress (apex-rest-gateway)</option>
+<option>Customer Portal LWC Framework (omni-channel-ui)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm pointer-events-none text-outline text-[16px]">expand_more</span>
+</div>
+</div>
+<!-- Manual Ticket Key / Issue Identifier -->
+<div class="md:col-span-6 flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider flex items-center justify-between">
+<span>External Ticket Key / ID</span>
+<span class="font-mono-xs text-mono-xs text-tertiary lowercase">air-gap mapping</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-space-sm text-outline text-[16px]">tag</span>
+<input class="w-full pl-8 pr-space-md py-1.5 bg-surface-container-low text-on-surface font-mono-sm text-mono-sm rounded-xl focus:outline-none focus:bg-surface transition-colors shadow-inner" placeholder="e.g. SEC-402, ACME-8841" type="text" value="SEC-402"/>
+</div>
+</div>
+<!-- Ticket Title / Summary -->
+<div class="md:col-span-12 flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ticket Title & Core Intent</label>
+<input class="w-full px-space-sm py-2 bg-surface-container-low text-on-surface font-body-lg text-body-lg font-medium rounded-xl focus:outline-none focus:bg-surface transition-colors shadow-inner" placeholder="Provide a descriptive, objective-driven ticket title" type="text" value="Build Secure Custom Metadata Cache & Audit Logger for Apex REST Gateway"/>
+</div>
+<!-- Type & Priority Selectors -->
+<div class="md:col-span-6 flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Issue Type</label>
+<div class="grid grid-cols-4 gap-space-2xs p-space-2xs bg-surface-container-low rounded-xl">
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">Story</button>
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">Task</button>
+<button class="py-1 bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold rounded text-center shadow-sm" type="button">Sec Fix</button>
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">Spike</button>
+</div>
+</div>
+<div class="md:col-span-6 flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Execution Priority</label>
+<div class="grid grid-cols-4 gap-space-2xs p-space-2xs bg-surface-container-low rounded-xl">
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">P3 Low</button>
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">P2 Med</button>
+<button class="py-1 bg-error text-on-error font-label-sm text-label-sm font-semibold rounded text-center shadow-sm" type="button">P1 High</button>
+<button class="py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface text-center transition-colors" type="button">P0 Blocker</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Panel 2: Rich Specification & Acceptance Criteria Editor -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">terminal</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">2. Architectural Specification & Acceptance Criteria</span>
+</div>
+<!-- Mode Switcher Tabs -->
+<div class="flex items-center bg-surface-container-low p-space-2xs rounded-lg">
+<button class="px-space-sm py-1 bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-medium rounded shadow-sm" type="button">Markdown Editor</button>
+<button class="px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">Rendered Preview</button>
+<button class="px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">AST Diff</button>
+</div>
+</div>
+<!-- Markdown Formatting Action Toolbar -->
+<div class="flex items-center flex-wrap gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-lg text-on-surface-variant">
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Heading" type="button"><span class="material-symbols-outlined text-[16px]">title</span></button>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Bold" type="button"><span class="material-symbols-outlined text-[16px]">format_bold</span></button>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Italic" type="button"><span class="material-symbols-outlined text-[16px]">format_italic</span></button>
+<span class="w-px h-3 bg-outline-variant mx-1"></span>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Code snippet" type="button"><span class="material-symbols-outlined text-[16px]">code</span></button>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Checklist" type="button"><span class="material-symbols-outlined text-[16px]">checklist</span></button>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Data Table" type="button"><span class="material-symbols-outlined text-[16px]">table</span></button>
+<button class="p-1 hover:text-on-surface hover:bg-surface rounded" title="Technical Callout" type="button"><span class="material-symbols-outlined text-[16px]">info</span></button>
+<span class="w-px h-3 bg-outline-variant mx-1"></span>
+<div class="ml-auto flex items-center gap-space-xs">
+<span class="font-mono-xs text-mono-xs text-outline">Line 42, Col 1</span>
+<span class="font-mono-xs text-mono-xs text-primary font-medium">UTF-8</span>
+</div>
+</div>
+<!-- Monospaced Code/Markdown Textarea with Pre-populated Spec -->
+<div class="relative rounded-xl overflow-hidden shadow-inner bg-surface-container-low">
+<textarea class="w-full p-space-md bg-transparent text-on-surface font-mono-sm text-mono-sm focus:outline-none resize-y leading-relaxed" rows="15" spellcheck="false">## Business Objective
+Implement an in-memory, thread-safe Custom Metadata cache wrapper for incoming REST ingress payloads to eliminate duplicate SOQL governor hits on high-frequency inbound telemetry.
+
+## Functional Requirements
+1. Abstract access to `Gateway_Security_Config__mdt` via a dedicated singleton Apex provider `SecurityConfigProvider.cls`.
+2. Cache validated tokens and route limits in `Cache.OrgPartition` named 'IngressGatewaySession'.
+3. Inject structured JSON telemetry into platform event `Gateway_Security_Audit__e` upon any unauthorized token replay.
+
+## Acceptance Criteria
+- [ ] Provider enforces zero-query reads when cached partition key is valid (< 300s TTL).
+- [ ] Safe fallback to SOQL query when cache eviction occurs with graceful exception suppression.
+- [ ] Apex test coverage strictly >= 95% with mock assertions simulating Governor limit edge scenarios.
+- [ ] Strictly zero DML operations executed within HTTP GET transaction contexts.
+
+## Technical Architecture & Guardrails
+- **Salesforce Target API**: v58.0+
+- **Apex Sharing Model**: `inherited sharing` on service interfaces, `without sharing` specifically for cache manager.
+- **SOQL Constraint**: No queries inside loops; utilize selector pattern `GatewaySecuritySelector.cls`.
+- **Security Check**: Enforce `Security.stripInaccessible(AccessType.READABLE, records)` prior to serialization.</textarea>
+</div>
+<!-- Spec Quality & Codex AST Intelligence Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm p-space-sm bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-sm py-1 bg-surface-container-lowest rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]">neurology</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Codex Spec Linter:</span>
+<span class="font-mono-xs text-mono-xs text-tertiary font-bold">94 / 100 Clarity</span>
+</div>
+<span class="hidden sm:inline-block font-mono-xs text-mono-xs text-on-surface-variant">3 executable tasks identified</span>
+<span class="hidden sm:inline-block font-mono-xs text-mono-xs text-outline-variant">·</span>
+<span class="hidden sm:inline-block font-mono-xs text-mono-xs text-primary font-medium">0 ambiguity flags</span>
+</div>
+<button class="flex items-center gap-space-2xs text-secondary font-label-sm text-label-sm font-medium hover:underline" type="button">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>AI Spec Polish</span>
+</button>
+</div>
+</section>
+<!-- Panel 3: Reference Specifications & Assets Attachments -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">attachment</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">3. Reference Attachments & Schemas (Optional)</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">3 files loaded (1.78 MB total)</span>
+</div>
+<!-- Drag & Drop Upload Zone -->
+<div class="p-space-lg bg-surface-container-low rounded-xl flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-high transition-colors group">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-105 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium mt-space-sm">Drag & drop Figma exports, JSON payloads, OpenAPI YAML, or architectural diagrams</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">Max 25MB each. Agent ingestion will parse OpenAPI definitions and JSON structures automatically into pipeline mocks.</span>
+</div>
+<!-- Attached Items List -->
+<div class="flex flex-col gap-space-xs">
+<!-- Item 1: JSON Schema -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">data_object</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">lead-scoring-schema-v3.json</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-primary font-mono-xs text-mono-xs rounded">Parsed & Validated</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">42.8 KB · JSON Schema draft-07</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded" title="View Payload" type="button"><span class="material-symbols-outlined text-[16px]">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error rounded" title="Remove File" type="button"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Item 2: Architecture Diagram Reference -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg overflow-hidden shrink-0 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Architectural schematic diagram in technical dark and light blue lines detailing Salesforce Apex REST ingress API flow through a metadata cache layer into an audit log platform event system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0gdnX4IdyP0EJvbrHBegGqGWz-_xvnp4qbMKa27vtomYcEpN1S0XySAlrmq2bEuokZWC9SQIr5l15ftM90XnOPWCO-rWuEHPeD-wvkfCftx4vPywcAmdAXrcPo65HYB5v9K_no-_AR0Met-MdQ3j9b_Yft51m_EF1UcTO0XTT1DC4WnJCLuLRAMM-LrnHOojzoXhRCSU76AFzd5m5MQpOHl3WqN__7aMWSVYCqLv4L0eZIBDVoEpR"/>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">gateway_audit_architecture.png</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-on-surface font-mono-xs text-mono-xs rounded">Image Spec</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">1.40 MB · 2400 x 1480 · Multimodal Vision Ingest</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded" title="View Fullsize" type="button"><span class="material-symbols-outlined text-[16px]">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error rounded" title="Remove File" type="button"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Item 3: PDF Compliance Spec -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-error shadow-sm">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">compliance_checklist_soc2.pdf</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-on-surface font-mono-xs text-mono-xs rounded">Text Extracted</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">340 KB · Security Audit Guardrails</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 text-on-surface-variant hover:text-on-surface rounded" title="Inspect Extracted Text" type="button"><span class="material-symbols-outlined text-[16px]">visibility</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error rounded" title="Remove File" type="button"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Pipeline Config, Verification Gates, and Recent Manual Work (35% -> 4 cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Panel 4: Autonomous Pipeline Orchestration Settings -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pipeline Dispatch Config</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">settings</span>
+</div>
+<!-- Target Environment -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Target Execution Environment</label>
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between shadow-inner">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px]">cloud</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Salesforce Scratch Org</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">SFDX CLI v58.4 · Isolated Ephemeral</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">unfold_more</span>
+</div>
+</div>
+<!-- Generated Git Branch -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Auto-Provisioned Branch</label>
+<div class="flex items-center gap-space-xs px-space-sm py-1.5 bg-surface-container-low rounded-xl shadow-inner">
+<span class="material-symbols-outlined text-tertiary text-[16px]">fork_right</span>
+<span class="font-mono-xs text-mono-xs text-on-surface truncate">feature/manual-SEC-402-cache-logger</span>
+</div>
+</div>
+<!-- AI Model Ensemble -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Assigned Agent Architecture</label>
+<div class="p-space-sm bg-surface-container-low rounded-xl flex flex-col gap-1 shadow-inner">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Codex o3-mini (High reasoning)</span>
+<span class="px-1 py-0.5 bg-surface-variant text-primary font-mono-xs text-mono-xs rounded">Synthesizer</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-mono-xs text-mono-xs">+ Claude 3.7 Sonnet (Apex tuned)</span>
+<span class="px-1 py-0.5 bg-surface-container text-on-surface-variant font-mono-xs text-mono-xs rounded">Validator</span>
+</div>
+</div>
+</div>
+<!-- Skills to Auto-Attach -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Skills to Auto-Attach</label>
+<button class="text-primary font-mono-xs text-mono-xs font-semibold hover:underline" type="button">+ Add Skill</button>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-space-sm py-1.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">extension</span>
+<span class="font-mono-xs text-mono-xs text-on-surface font-medium">salesforce-lwc-generator</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">v1.4.2</span>
+</div>
+<div class="flex items-center justify-between px-space-sm py-1.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">checklist_rtl</span>
+<span class="font-mono-xs text-mono-xs text-on-surface font-medium">apex-test-suite-runner</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">v2.1.0</span>
+</div>
+<div class="flex items-center justify-between px-space-sm py-1.5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">speed</span>
+<span class="font-mono-xs text-mono-xs text-on-surface font-medium">soql-query-optimizer</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">v1.2.4</span>
+</div>
+</div>
+</div>
+<!-- Human in the loop Gate Toggle -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-medium">Staff Engineer Gate</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Require manual diff approval before branch merge</span>
+</div>
+<!-- Visual Active Toggle -->
+<div class="w-10 h-6 bg-primary-container rounded-full p-0.5 flex items-center justify-end cursor-pointer shadow-sm">
+<div class="w-5 h-5 bg-on-primary rounded-full shadow-md"></div>
+</div>
+</div>
+<!-- Cost & Resource Estimate Projection -->
+<div class="p-space-sm bg-surface-container rounded-xl flex items-center justify-between font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Projected Pipeline Run Cost:</span>
+</div>
+<span class="text-on-surface font-bold">~$3.14 · 4.8 min</span>
+</div>
+</section>
+<!-- Panel 5: Recent Manually Ingested Work Items -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Recent Manual Dispatches</span>
+</div>
+<a class="font-mono-xs text-mono-xs text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Item 1 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-primary font-bold">SEC-389</span>
+<span class="px-1.5 py-0.5 bg-surface-container text-tertiary font-mono-xs text-mono-xs rounded font-medium">PR #82 Merged</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Fix Apex heap limit on batch geocoding</span>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs pt-1">
+<span>Run #86 · 4m 12s</span>
+<span class="text-tertiary font-semibold">100% Tests Pass</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-primary font-bold">OPS-114</span>
+<span class="px-1.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium">Awaiting Sign-off</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Rotate OAuth token secret in KMS</span>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs pt-1">
+<span>Run #81 · Paused</span>
+<span class="text-on-surface font-medium">Elena Rostova review</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-space-sm bg-surface-container-low rounded-xl flex flex-col gap-1 hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-primary font-bold">MAN-002</span>
+<span class="px-1.5 py-0.5 bg-surface-container text-tertiary font-mono-xs text-mono-xs rounded font-medium">PR #77 Merged</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Ingest external customer bugfix</span>
+<div class="flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs pt-1">
+<span>Run #79 · 2m 58s</span>
+<span class="text-tertiary font-semibold">Sandbox Validated</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Panel 6: Informational Air-Gapped Guidance Note -->
+<section class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">vpn_lock</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Deterministic Spec Synthesizer</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Maverick decomposes your markdown criteria and attached JSON schemas into an abstract syntax tree (AST). Even with outbound Jira webhooks blocked, autonomous agents execute full test assertions and produce isolated pull requests ready for manual cherry-picking.
+          </p>
+</div>
+</section>
+</div>
+</div>
+</div></main></div></body></html>

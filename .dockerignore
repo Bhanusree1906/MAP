@@ -1,0 +1,15 @@
+.git
+.env
+.venv
+myenv
+__pycache__
+*.py[cod]
+agent_factory.db*
+frontend/node_modules
+frontend/dist
+storage
+
+*.db
+*.db-shm
+*.db-wal
+*.db.*

@@ -1,0 +1,5 @@
+# Local blob store for skill packages and project memory.
+# Layout mirrors the future S3 keyspace:
+#   skills/<slug>/<version>/skill.tar.gz
+#   memories/<project_id>/<version>/MEMORY.md
+# Override the root with PIPELINE_STORAGE_DIR.

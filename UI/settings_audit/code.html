@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#737686",
+          "background": "#f8f9ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary-container": "#8a4cfc",
+          "on-primary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed": "#eaddff",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "inverse-surface": "#213145",
+          "surface-variant": "#d3e4fe",
+          "tertiary": "#005a89",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "error": "#ba1a1a",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "secondary-fixed-dim": "#d2bbff",
+          "surface-container-high": "#dce9ff",
+          "surface-container": "#e5eeff",
+          "inverse-on-surface": "#eaf1ff",
+          "on-tertiary-container": "#e7f2ff",
+          "error-container": "#ffdad6",
+          "surface-tint": "#0053db",
+          "primary-container": "#2563eb",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed": "#00174b",
+          "primary-fixed-dim": "#b4c5ff",
+          "tertiary-fixed-dim": "#93ccff",
+          "outline-variant": "#c3c6d7",
+          "tertiary-container": "#0073ae",
+          "on-secondary-container": "#fffbff",
+          "on-surface": "#0b1c30",
+          "on-surface-variant": "#434655",
+          "on-secondary-fixed": "#25005a",
+          "secondary": "#712ae2",
+          "on-background": "#0b1c30",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed": "#001d31",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-low": "#eff4ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-lg": "16px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-md": "12px",
+          "inspector-width": "380px",
+          "space-xl": "20px",
+          "space-sm": "8px",
+          "sidebar-expanded": "240px",
+          "space-2xs": "2px",
+          "sidebar-collapsed": "48px",
+          "space-2xl": "24px",
+          "space-3xl": "32px"
+        },
+        "fontFamily": {
+          "mono-xs": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "mono-md": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-sm": ["Inter"],
+          "mono-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+          "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "mono-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "headline-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "mono-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-sidebar-expanded bg-surface-container-low z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="Maverick Agent Pipeline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X3LI9T7BP7lvUnwQ9Bzr6dLKIWbjLB3s-whXCiJ0NCplB9SqQk2L_hq1o1zRiYesk5UW16ZQLTqHaHcrI-sNezK2ejgMoAAjG7quu8z-KAgzU2a5xW07mmgxBj54N1B-qV5r4phpr_9F_R5enRBC0xMk7AZ1_dqK190d9XE0hH59xRVNaW2F6v_CLR-w3_o_KbG54B9GNJZBu3Bh2SMd7Tp5zS0LFlhLVkVsNhxmtcIBNZmR19HIF5-Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Maverick</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Pipeline</span></div></div><span class="px-space-xs py-space-2xs bg-surface-variant font-mono-xs text-mono-xs text-on-surface font-medium rounded-lg">v2.4</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-primary text-[18px]">corporate_fare</span><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-on-surface font-medium truncate">Acme Global Delivery</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">Enterprise Prod</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div><nav class="flex flex-col gap-space-2xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-md text-label-md">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">layers</span><span class="font-label-md text-label-md">Projects</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">6</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ticket-browser" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">Ticket Browser</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">14</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pipeline-runs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-label-md text-label-md">Pipeline Runs</span></div><div class="flex items-center gap-space-2xs px-space-xs py-space-2xs bg-surface-variant rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-mono-xs text-mono-xs text-primary">3</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="skills-catalog" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">neurology</span><span class="font-label-md text-label-md">Skills Catalog</span></div><span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">2</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="connections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-md text-label-md">Connections</span></div><span class="w-2 h-2 rounded-full bg-tertiary-container"></span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-xl transition-colors bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]" data-path="settings-audit" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">security</span><span class="font-label-md text-label-md">Settings / Audit</span></div></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="font-mono-xs text-mono-xs text-on-surface">SFDX & Codex</span></div><span class="font-mono-xs text-mono-xs text-on-surface-variant">v4.1</span></div><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[14px]">database</span><span class="font-mono-xs text-mono-xs text-on-surface">Vector Store</span></div><span class="font-mono-xs text-mono-xs text-tertiary font-medium">Synced</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant px-space-xs"><div class="flex items-center gap-space-2xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Operational</span></div><a class="font-label-sm text-label-sm hover:text-on-surface" href="#">Docs</a></div></div></aside><div class="pl-sidebar-expanded"><header class="fixed top-0 left-sidebar-expanded right-0 h-14 bg-surface/80 backdrop-blur-xl z-30 flex items-center justify-between px-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="text-on-surface font-medium">Maverick</span><span class="text-outline-variant">/</span><span class="text-on-surface">Console</span></div><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search tickets, runs, PRs...</span><kbd class="font-mono-xs text-mono-xs bg-surface px-space-xs py-space-2xs rounded text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-xl"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2 Active Runs</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">· $14.28 est</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-[0_1px_4px_rgba(37,99,235,0.2)]" type="button"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Start Pipeline Run</span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg relative hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(0,0,0,0.06)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqebjczDE5fgYNndNkNdGB8S-a3Z7rXVtrAZDnMCXt7HoWGAkfCfMJ3LdzAdIDxaonGmM5X0ioj9SorhsEXsKcbo8BO6tX1lFxXv_C8FGcQYj66sg6j9rkmdS-zDx5mxPAExIpXCzyRe48GDItvTehm6Yg5Pwk8N_x4cAyQbOruI_SIK-euVgOlcjSNZxFKLlDZbdhVZvodMIW1o6X4LqUnoWa3jrm4ig8__Pcd69DhJQEqbfthupj"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-mono-xs text-mono-xs text-on-surface-variant leading-tight">Staff AI Lead</span></div></div></div></header><main class="w-full pt-14 px-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full pb-space-3xl">
+<!-- Top Navigation Subheader & Tab Switcher -->
+<div class="py-space-xl flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-mono-xs text-mono-xs uppercase tracking-wider mb-space-2xs">
+<span>Administration</span>
+<span>/</span>
+<span class="text-primary font-medium">Compliance & Configuration</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Settings & Audit Log</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 max-w-2xl">
+        Workspace-level model providers, pipeline execution parameters, and tamper-evident cryptographic audit trail.
+      </p>
+</div>
+<!-- Dual Segmented Navigation Control -->
+<div class="flex items-center bg-surface-container-high p-1 rounded-xl shadow-sm self-start md:self-auto">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md transition-all" id="btn-tab-settings" onclick="switchTab('settings')">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Workspace Settings</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" id="btn-tab-audit" onclick="switchTab('audit')">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+<span>Audit Log</span>
+<span class="ml-1 px-space-xs py-space-2xs bg-surface-variant text-on-surface font-mono-xs text-mono-xs rounded">1,842 events</span>
+</button>
+</div>
+</div>
+<!-- TAB 1: WORKSPACE SETTINGS -->
+<div class="flex flex-col gap-space-xl transition-opacity duration-150" id="tab-content-settings">
+<!-- Top System Banner & Health -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">Acme Enterprise Workspace Governance</span>
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">SOC2 v3 Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Global guardrails apply to all autonomous agents executing across SFDX sandboxes and GitHub repositories.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end lg:self-center">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Config Version: <span class="text-on-surface font-medium">v4.1.9-rc</span></span>
+<button class="px-space-sm py-1 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-high transition-colors" type="button">
+          Revert to Clean Baseline
+        </button>
+</div>
+</div>
+<!-- Grid: Form Sections -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column (8 cols): Primary Configuration Parameters -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- Section 1: Model Provider & Intelligence Configuration -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">neurology</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Model Provider & Intelligence Configuration</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Configure the frontier LLMs powering decomposition, codegen, and unit synthesis.</p>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium">Hybrid Multi-Model</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Planning Model -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between">
+<span>Default Planning Model</span>
+<span class="font-mono-xs text-mono-xs text-primary font-medium">High Reasoning</span>
+</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-md pr-space-xl bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none cursor-pointer focus:bg-surface-container-lowest focus:shadow-sm outline-none">
+<option selected="">Codex o3-mini (High reasoning)</option>
+<option>Claude 3.7 Sonnet (Thinking enabled)</option>
+<option>DeepSeek R1 (Self-hosted vLLM)</option>
+<option>GPT-4o (Standard fast)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-space-sm top-2 pointer-events-none text-[18px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Executes Jira acceptance criteria decomposition and dependency DAG ordering.</span>
+</div>
+<!-- Code Synthesis Model -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between">
+<span>Default Code Synthesis Model</span>
+<span class="font-mono-xs text-mono-xs text-secondary font-medium">Apex / LWC Tuned</span>
+</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-md pr-space-xl bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none cursor-pointer focus:bg-surface-container-lowest focus:shadow-sm outline-none">
+<option selected="">Claude 3.7 Sonnet (Hybrid)</option>
+<option>Codex o3-mini (Deterministic)</option>
+<option>Qwen 2.5 Coder 32B (Strict isolated)</option>
+<option>Custom Acme CodeFineTune v2</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-space-sm top-2 pointer-events-none text-[18px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Directs patch synthesis, Apex trigger construction, and Jest test runner suites.</span>
+</div>
+</div>
+<!-- Slider: Context Window -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-space-xs">
+<span>Context Window Memory Limit</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">info</span>
+</label>
+<span class="font-mono-md text-mono-md text-primary font-medium" id="token-val">128,000 tokens</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-high rounded cursor-pointer" id="token-slider" max="200000" min="32000" oninput="document.getElementById('token-val').innerText = parseInt(this.value).toLocaleString() + ' tokens'" step="8000" type="range" value="128000"/>
+<div class="flex justify-between font-mono-xs text-mono-xs text-on-surface-variant">
+<span>32k (Baseline AST)</span>
+<span>64k</span>
+<span class="font-medium text-primary">128k (Full SObject Graph)</span>
+<span>200k (Heavy Enterprise Monorepo)</span>
+</div>
+</div>
+<!-- Temperature Control -->
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Sampling Temperature</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Recommended 0.15 - 0.25 for enterprise transactional logic without hallucinations.</span>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-low px-space-md py-1.5 rounded-lg">
+<span class="font-mono-md text-mono-md text-primary font-semibold">0.2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Deterministic Code Gen</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Pipeline Defaults & Safety Controls -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">shield</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Pipeline Defaults & Safety Controls</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mandatory compliance thresholds and automated circuit breakers for autonomous tasks.</p>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-surface-variant text-tertiary font-mono-xs text-mono-xs rounded font-medium">Guardrails Active</span>
+</div>
+<!-- Sandbox Org Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Default Ephemeral Sandbox Environment</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-md pr-space-xl bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none cursor-pointer outline-none">
+<option selected="">Salesforce Scratch Org (SFDX CLI v58.4 - 7-Day Expire)</option>
+<option>Full Copy Stage (StageSandbox-US-East)</option>
+<option>Isolated Node.js Docker Container (Jest / Cypress suite)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-space-sm top-2 pointer-events-none text-[18px]">expand_more</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Every run initializes a fresh scratch org validated against the git master branch.</span>
+</div>
+<!-- Toggles -->
+<div class="flex flex-col gap-space-md pt-space-xs">
+<!-- Toggle 1: Auto PR -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low">
+<div class="flex flex-col gap-space-2xs pr-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Automatic PR Creation</span>
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded">GitHub Enterprise</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Automatically opens draft PR with code diff, architectural rationale, and sandbox test reports upon test suite pass.</span>
+</div>
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-primary-container p-0.5 transition-colors duration-200" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Toggle 2: Human Approval Gate -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low">
+<div class="flex flex-col gap-space-2xs pr-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Human Approval Gate</span>
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium">Compliance Req</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Require staff engineer signature before pushing metadata packages or changing production-linked branches.</span>
+</div>
+<button class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full bg-primary-container p-0.5 transition-colors duration-200" type="button">
+<span class="translate-x-5 inline-block h-5 w-5 transform rounded-full bg-on-primary shadow transition duration-200 ease-in-out"></span>
+</button>
+</div>
+</div>
+<!-- Dual Limits: Timeout & Cost Cap -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg pt-space-xs">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Max Run Execution Timeout</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-md py-1">
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] mr-space-xs">timer</span>
+<input class="bg-transparent text-on-surface font-body-md text-body-md outline-none w-full" type="text" value="30 minutes"/>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">SIGKILL</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Prevents infinite retry loops in synthesis agents.</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Max Cost Per Run Cap</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-md py-1">
+<span class="material-symbols-outlined text-primary text-[16px] mr-space-xs">payments</span>
+<input class="bg-transparent text-on-surface font-body-md text-body-md font-semibold outline-none w-full" type="text" value="$25.00 limit"/>
+<span class="font-mono-xs text-mono-xs text-error font-medium">Auto Kill</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Terminates model streaming if prompt token ceiling triggers.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (4 cols): Budget, Notifications & Summary -->
+<div class="lg:col-span-4 flex flex-col gap-space-xl">
+<!-- Usage & Cost Visibility Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance_wallet</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Workspace Budget</h2>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">October 2025</span>
+</div>
+<!-- Gauge / Visual Meter -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">$384.20</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">of $1,000.00 Limit</span>
+</div>
+<!-- Interactive Budget Progress Bar -->
+<div class="w-full bg-surface-container-high h-2.5 rounded-full overflow-hidden flex">
+<div class="bg-primary-container h-full rounded-full" style="width: 38.4%;"></div>
+</div>
+<div class="flex justify-between items-center pt-space-2xs text-on-surface-variant font-mono-xs text-mono-xs">
+<span>38.4% Consumed</span>
+<span>$615.80 Remaining</span>
+</div>
+</div>
+<!-- Monthly Budget Ceiling Input -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Monthly Workspace Cap (USD)</label>
+<div class="flex items-center bg-surface-container-low rounded-lg px-space-md py-1.5">
+<span class="text-on-surface font-mono-md text-mono-md font-medium mr-1">$</span>
+<input class="bg-transparent text-on-surface font-mono-md text-mono-md outline-none w-full" type="number" value="1000.00"/>
+<button class="text-primary font-label-sm text-label-sm font-medium hover:underline" type="button">Update</button>
+</div>
+</div>
+<!-- Notification Thresholds -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Utilization Webhook Alerts</span>
+<div class="space-y-space-xs">
+<label class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface">50% Cap Alert ($500.00)</span>
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface">75% High Warning ($750.00)</span>
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<span class="font-body-sm text-body-sm text-on-surface">90% Critical Alert ($900.00)</span>
+<input checked="" class="w-4 h-4 accent-primary rounded cursor-pointer" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Alert Destinations -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-2xs font-body-sm text-body-sm">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-medium">Slack Ops Channel</span>
+<span class="font-mono-xs text-mono-xs text-primary">#agent-telemetry</span>
+</div>
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-medium">Email Dispatch</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">eng-leads@acme.corp</span>
+</div>
+</div>
+</div>
+<!-- Sticky Form Action Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span class="font-body-sm text-body-sm">Last saved 4 hours ago by Elena Rostova</span>
+</div>
+<button class="w-full h-10 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-all flex items-center justify-center gap-space-xs shadow-md" onclick="showSaveToast()" type="button">
+<span class="material-symbols-outlined text-[18px]">check</span>
+<span>Save Changes</span>
+</button>
+<button class="w-full h-9 bg-surface-container text-on-surface-variant hover:text-on-surface rounded-xl font-label-sm text-label-sm font-medium transition-colors" type="button">
+            Discard Unsaved Edits
+          </button>
+</div>
+<!-- Compliance Mini Card -->
+<div class="p-space-md rounded-xl bg-surface-variant/40 flex items-center gap-space-md shadow-sm">
+<span class="material-symbols-outlined text-primary text-[28px]">verified</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">SOC2 Type II & FedRAMP</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Immutable logging active across all API runs and user approvals.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 2: AUDIT-STYLE LOG VIEW -->
+<div class="hidden flex-col gap-space-lg transition-opacity duration-150" id="tab-content-audit">
+<!-- Compliance & Action Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface">Tamper-Evident Chronological Audit Trail</span>
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-primary font-mono-xs text-mono-xs rounded font-medium">Chain Verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            SHA-256 state-chained execution records for regulatory compliance and autonomous oversight.
+          </span>
+</div>
+</div>
+<!-- Action Exports -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container text-on-surface rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Audit Trail (CSV)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-lg font-label-md text-label-md hover:bg-primary transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">encrypted</span>
+<span>Download Signed JSON Log</span>
+</button>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm flex-wrap flex-1">
+<!-- Search Event Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg flex-1 min-w-[200px]">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+<input class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none w-full placeholder:text-on-surface-variant" placeholder="Search event payload, hash, or actor IP..." type="text"/>
+</div>
+<!-- Event Type Dropdown Filter -->
+<div class="relative">
+<select class="h-8 pl-space-sm pr-space-xl bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg appearance-none cursor-pointer outline-none">
+<option>All Event Types</option>
+<option>Human Approval</option>
+<option>Pipeline Run</option>
+<option>Connection Update</option>
+<option>Skill Import</option>
+<option>System Config</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-2 top-2 pointer-events-none text-[16px]">expand_more</span>
+</div>
+<!-- Actor Filter -->
+<div class="relative">
+<select class="h-8 pl-space-sm pr-space-xl bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg appearance-none cursor-pointer outline-none">
+<option>All Actors</option>
+<option>Elena Rostova (Lead)</option>
+<option>Alex Chen (Architect)</option>
+<option>Maverick Bot (Automated)</option>
+<option>Admin User</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-2 top-2 pointer-events-none text-[16px]">expand_more</span>
+</div>
+<!-- Date Range Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-lg text-on-surface font-label-md text-label-md cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">calendar_today</span>
+<span>Last 24 Hours</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Realtime indicator -->
+<div class="flex items-center gap-space-xs self-end lg:self-center font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>Streaming live ingress</span>
+</div>
+</div>
+<!-- High Density Compliance Data Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-space-sm px-space-md font-medium">Timestamp (EST)</th>
+<th class="py-space-sm px-space-md font-medium">Event Type</th>
+<th class="py-space-sm px-space-md font-medium">Resource / Target</th>
+<th class="py-space-sm px-space-md font-medium">Actor & Origin IP</th>
+<th class="py-space-sm px-space-md font-medium min-w-[280px]">Action & Payload Description</th>
+<th class="py-space-sm px-space-md font-medium">Status</th>
+<th class="py-space-sm px-space-md font-medium">Integrity Hash</th>
+<th class="py-space-sm px-space-md font-medium text-right">Details</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm text-on-surface">
+<!-- Row 1: Human Approval -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 10:24:18.412
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Human Approval
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              Run #88 (AG-216)
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Elena Rostova (Lead)</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">192.168.4.12</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              Approved implementation plan for AG-216 after schema validation and test review
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors" title="Click to copy SHA-256">sha256:8f9a...3b21</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Pipeline Started -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 10:21:04.108
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                Pipeline Started
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              Project: Lead Priority Console
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Maverick Bot</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Worker node #04</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              Autonomous execution triggered via GitHub webhook event [push:feature/lead-priority]
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors">sha256:4d12...c982</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Connection Updated -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 09:47:33.910
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Connection Updated
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              GitHub OAuth Scopes
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Admin User</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">10.0.1.44</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              Token scope <span class="font-mono-xs text-mono-xs bg-surface-container px-1 py-0.5 rounded">read:org</span> added to Enterprise connection
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors">sha256:1a8e...77ff</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Skill Imported -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 09:12:02.731
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Skill Imported
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              salesforce-lwc-generator
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Alex Chen (Architect)</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">192.168.4.88</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              Imported skill v1.4.2 from verified ecosystem repo; signature validation checked
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors">sha256:7c33...88be</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: PR Created -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 08:30:15.552
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                PR Created
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              PR #84 (feature/apex-lead-sync)
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Maverick Bot</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Automated Agent</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              Draft PR created with 6 metadata files, Jest passing 100%, Apex test coverage 94%
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors">sha256:3901...fa24</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Sandbox Deployed -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs whitespace-nowrap text-on-surface-variant">
+              Oct 25, 2025 · 08:04:42.190
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-tertiary font-mono-xs text-mono-xs rounded font-medium inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Sandbox Deployed
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-medium text-on-surface">
+              Scratch Org #SF-098
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Maverick Bot</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">CLI Runner</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface-variant">
+              SFDX project deploy complete. Package version 2.4.0 verified in ephemeral target.
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Success
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap font-mono-xs text-mono-xs text-on-surface-variant">
+<span class="hover:text-primary cursor-copy transition-colors">sha256:990d...e18b</span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap text-right">
+<button class="text-primary hover:underline font-mono-xs text-mono-xs font-medium inline-flex items-center gap-0.5" type="button">
+                JSON <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination & Row Metrics Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<div class="flex items-center gap-space-xs font-mono-xs text-mono-xs">
+<span>Showing <strong class="text-on-surface">1 - 6</strong> of 1,842 total recorded entries</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface disabled:opacity-40" disabled="" type="button">Previous</button>
+<span class="px-space-sm py-1 rounded bg-primary-container text-on-primary font-mono-xs text-mono-xs">1</span>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono-xs text-mono-xs" type="button">2</button>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono-xs text-mono-xs" type="button">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-mono-xs text-mono-xs" type="button">307</button>
+<button class="px-space-sm py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Security & Compliance Footnote -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">lock</span>
+<span class="font-body-sm text-body-sm text-on-surface">
+          SOC2 Type II & FedRAMP Ready Audit Logging Enabled. Logs are cryptographically signed every 10 minutes.
+        </span>
+</div>
+<div class="flex items-center gap-space-xs font-mono-xs text-mono-xs text-on-surface-variant">
+<span>Merkle Root: <strong class="text-on-surface font-medium">0x81fa...67c2</strong></span>
+<button class="text-primary hover:underline ml-2" type="button">Verify Root</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Modal for Save Feedback -->
+<div class="fixed bottom-6 right-6 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none bg-inverse-surface text-inverse-on-surface px-space-lg py-space-md rounded-xl shadow-xl flex items-center gap-space-md z-50" id="save-toast">
+<span class="material-symbols-outlined text-primary-fixed text-[20px]">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-inverse-on-surface">Workspace Settings Synced</span>
+<span class="font-mono-xs text-mono-xs text-inverse-on-surface/80">Committed hash: 0x9b42...a901 to audit log</span>
+</div>
+</div>
+<script>
+    function switchTab(tab) {
+      const settingsTab = document.getElementById('tab-content-settings');
+      const auditTab = document.getElementById('tab-content-audit');
+      const btnSettings = document.getElementById('btn-tab-settings');
+      const btnAudit = document.getElementById('btn-tab-audit');
+
+      if (tab === 'settings') {
+        settingsTab.classList.remove('hidden');
+        auditTab.classList.add('hidden');
+        btnSettings.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btnSettings.classList.remove('text-on-surface-variant');
+        btnAudit.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btnAudit.classList.add('text-on-surface-variant');
+      } else {
+        settingsTab.classList.add('hidden');
+        auditTab.classList.remove('hidden');
+        btnAudit.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btnAudit.classList.remove('text-on-surface-variant');
+        btnSettings.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm');
+        btnSettings.classList.add('text-on-surface-variant');
+      }
+    }
+
+    function showSaveToast() {
+      const toast = document.getElementById('save-toast');
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 3500);
+    }
+  </script>
+</div></main></div></body></html>

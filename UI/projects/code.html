@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#737686",
+          "background": "#f8f9ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary-container": "#8a4cfc",
+          "on-primary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed": "#eaddff",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "inverse-surface": "#213145",
+          "surface-variant": "#d3e4fe",
+          "tertiary": "#005a89",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "error": "#ba1a1a",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "secondary-fixed-dim": "#d2bbff",
+          "surface-container-high": "#dce9ff",
+          "surface-container": "#e5eeff",
+          "inverse-on-surface": "#eaf1ff",
+          "on-tertiary-container": "#e7f2ff",
+          "error-container": "#ffdad6",
+          "surface-tint": "#0053db",
+          "primary-container": "#2563eb",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed": "#00174b",
+          "primary-fixed-dim": "#b4c5ff",
+          "tertiary-fixed-dim": "#93ccff",
+          "outline-variant": "#c3c6d7",
+          "tertiary-container": "#0073ae",
+          "on-secondary-container": "#fffbff",
+          "on-surface": "#0b1c30",
+          "on-surface-variant": "#434655",
+          "on-secondary-fixed": "#25005a",
+          "secondary": "#712ae2",
+          "on-background": "#0b1c30",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed": "#001d31",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-low": "#eff4ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-lg": "16px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-md": "12px",
+          "inspector-width": "380px",
+          "space-xl": "20px",
+          "space-sm": "8px",
+          "sidebar-expanded": "240px",
+          "space-2xs": "2px",
+          "sidebar-collapsed": "48px",
+          "space-2xl": "24px",
+          "space-3xl": "32px"
+        },
+        "fontFamily": {
+          "mono-xs": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "mono-md": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-sm": ["Inter"],
+          "mono-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+          "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "mono-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "headline-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "mono-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-sidebar-expanded bg-surface-container-low z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="Maverick Agent Pipeline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X3LI9T7BP7lvUnwQ9Bzr6dLKIWbjLB3s-whXCiJ0NCplB9SqQk2L_hq1o1zRiYesk5UW16ZQLTqHaHcrI-sNezK2ejgMoAAjG7quu8z-KAgzU2a5xW07mmgxBj54N1B-qV5r4phpr_9F_R5enRBC0xMk7AZ1_dqK190d9XE0hH59xRVNaW2F6v_CLR-w3_o_KbG54B9GNJZBu3Bh2SMd7Tp5zS0LFlhLVkVsNhxmtcIBNZmR19HIF5-Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Maverick</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Pipeline</span></div></div><span class="px-space-xs py-space-2xs bg-surface-variant font-mono-xs text-mono-xs text-on-surface font-medium rounded-lg">v2.4</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-primary text-[18px]">corporate_fare</span><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-on-surface font-medium truncate">Acme Global Delivery</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">Enterprise Prod</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div><nav class="flex flex-col gap-space-2xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-md text-label-md">Overview</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-xl transition-colors bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">layers</span><span class="font-label-md text-label-md">Projects</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">6</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ticket-browser" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">Ticket Browser</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">14</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pipeline-runs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-label-md text-label-md">Pipeline Runs</span></div><div class="flex items-center gap-space-2xs px-space-xs py-space-2xs bg-surface-variant rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-mono-xs text-mono-xs text-primary">3</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="skills-catalog" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">neurology</span><span class="font-label-md text-label-md">Skills Catalog</span></div><span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">2</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="connections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-md text-label-md">Connections</span></div><span class="w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings-audit" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">security</span><span class="font-label-md text-label-md">Settings / Audit</span></div></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="font-mono-xs text-mono-xs text-on-surface">SFDX & Codex</span></div><span class="font-mono-xs text-mono-xs text-on-surface-variant">v4.1</span></div><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[14px]">database</span><span class="font-mono-xs text-mono-xs text-on-surface">Vector Store</span></div><span class="font-mono-xs text-mono-xs text-tertiary font-medium">Synced</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant px-space-xs"><div class="flex items-center gap-space-2xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Operational</span></div><a class="font-label-sm text-label-sm hover:text-on-surface" href="#">Docs</a></div></div></aside><div class="pl-sidebar-expanded"><header class="fixed top-0 left-sidebar-expanded right-0 h-14 bg-surface/80 backdrop-blur-xl z-30 flex items-center justify-between px-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="text-on-surface font-medium">Maverick</span><span class="text-outline-variant">/</span><span class="text-on-surface">Console</span></div><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search tickets, runs, PRs...</span><kbd class="font-mono-xs text-mono-xs bg-surface px-space-xs py-space-2xs rounded text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-xl"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2 Active Runs</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">· $14.28 est</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-[0_1px_4px_rgba(37,99,235,0.2)]" type="button"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Start Pipeline Run</span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg relative hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(0,0,0,0.06)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqebjczDE5fgYNndNkNdGB8S-a3Z7rXVtrAZDnMCXt7HoWGAkfCfMJ3LdzAdIDxaonGmM5X0ioj9SorhsEXsKcbo8BO6tX1lFxXv_C8FGcQYj66sg6j9rkmdS-zDx5mxPAExIpXCzyRe48GDItvTehm6Yg5Pwk8N_x4cAyQbOruI_SIK-euVgOlcjSNZxFKLlDZbdhVZvodMIW1o6X4LqUnoWa3jrm4ig8__Pcd69DhJQEqbfthupj"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-mono-xs text-mono-xs text-on-surface-variant leading-tight">Staff AI Lead</span></div></div></div></header><main class="w-full pt-14 px-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Action & Metric Header -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md pb-space-lg">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">Projects</span>
+<span class="px-space-sm py-space-2xs bg-primary-fixed text-on-primary-fixed font-mono-xs text-mono-xs rounded-full">4 Active Repositories</span>
+<span class="px-space-sm py-space-2xs bg-surface-container-high text-on-surface-variant font-mono-xs text-mono-xs rounded-full">DevHub: Connected</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage repositories, target environments, connected tools, and automated pipelines.</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high shadow-sm rounded-xl font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">sync</span>
+<span>Sync DevHub</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high shadow-sm rounded-xl font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">cloud_download</span>
+<span>Export Specs</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-lg py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-all shadow-md" id="toggleCreateProjectBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Project</span>
+</button>
+</div>
+</div>
+<!-- Operational Telemetry Bar -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md mb-space-xl">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Scratch Orgs Pool</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">18/25</span>
+<span class="font-mono-xs text-mono-xs text-primary">7 Available</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">cloud_circle</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Jira Sync Health</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">100%</span>
+<span class="font-mono-xs text-mono-xs text-tertiary">3 Webhooks OK</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Agent Codex Tokens</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">4.82M</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Past 24h</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">memory</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Autonomous Pipelines</span>
+<div class="flex items-baseline gap-space-xs mt-space-2xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">94.1%</span>
+<span class="font-mono-xs text-mono-xs text-primary">First-pass pass rate</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-xl bg-surface-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+</div>
+</div>
+<!-- Interactive New Project Configuration Drawer / Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg mb-space-xl transition-all duration-300" id="newProjectCard">
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">New Project Orchestration Provisioning</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Configure execution sandbox, version-control bindings, and automated agent tools</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container text-on-surface-variant font-mono-xs text-mono-xs rounded">Config ID: PRJ-TMPL-08</span>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" id="closeDrawerBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<form class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg pt-space-sm" onsubmit="event.preventDefault();">
+<!-- Left Column: Primary Identifiers -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center justify-between">
+<span>Project Name <span class="text-error">*</span></span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Slug: lead-priority-console</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[18px]">rocket_launch</span>
+<input class="w-full h-8 pl-9 pr-space-sm bg-surface rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="Enter concise project identifier" type="text" value="Lead Priority Console"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Description</label>
+<textarea class="w-full p-space-sm bg-surface rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm resize-none" placeholder="Provide operational scope..." rows="2">Enterprise Lightning Web Component with AI prioritization scoring and Salesforce integration</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">GitHub Organization Account</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">domain</span>
+<select class="w-full h-8 pl-8 pr-space-md bg-surface rounded-xl font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">github.com/acme-eng (Org Account • Verified)</option>
+<option>github.com/acme-sandbox (Internal Testing)</option>
+<option>github.com/elena-rostova (Personal Dev)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2 text-on-surface-variant pointer-events-none text-[16px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Default Target Branch</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">fork_right</span>
+<input class="w-full h-8 pl-8 pr-space-sm bg-surface rounded-xl font-mono-sm text-mono-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" type="text" value="main"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Repository Selector</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">inventory_2</span>
+<select class="w-full h-8 pl-8 pr-space-md bg-surface rounded-xl font-mono-sm text-mono-sm text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">acme-eng/salesforce-lead-console</option>
+<option>acme-eng/crm-agentic-core</option>
+<option>acme-eng/webhook-gateway-v2</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2 text-on-surface-variant pointer-events-none text-[16px]">expand_more</span>
+</div>
+<label class="flex items-center gap-space-xs pt-1 cursor-pointer select-none">
+<input checked="" class="rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Create repository from project name if not found in GitHub registry</span>
+</label>
+</div>
+</div>
+<!-- Right Column: Environment & Connectors -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Jira Workspace & Issue Binding</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">confirmation_number</span>
+<select class="w-full h-8 pl-8 pr-space-md bg-surface rounded-xl font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">Jira Cloud - Acme Core (Project Key: AG, CORE)</option>
+<option>Jira Cloud - Staging Pilots (Project Key: PILOT, DEMO)</option>
+<option>Jira Server Internal - Legacy (Project Key: CRM)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2 text-on-surface-variant pointer-events-none text-[16px]">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Sandbox Execution Environment</label>
+<div class="grid grid-cols-2 gap-space-sm">
+<button class="flex items-center justify-center gap-space-xs h-8 px-space-sm bg-surface hover:bg-surface-container-high rounded-xl text-on-surface-variant font-label-md text-label-md transition-all" id="sandboxDefaultBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+<span>Default Linux Container</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs h-8 px-space-sm bg-primary-container text-on-primary rounded-xl font-label-md text-label-md shadow-sm transition-all font-medium" id="sandboxSfdxBtn" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_done</span>
+<span>Salesforce Scratch Org (SFDX)</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Target Salesforce DevHub Org</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">cloud_queue</span>
+<select class="w-full h-8 pl-8 pr-space-md bg-surface rounded-xl font-mono-sm text-mono-sm text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option selected="">qa-scratch-org-04 (SFDX DevHub • Active 6d)</option>
+<option>prod-staging-org (SFDX DevHub • Permanent)</option>
+<option>uat-preview-cluster (SFDX DevHub • Active 14d)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-2 text-on-surface-variant pointer-events-none text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-mono-xs text-mono-xs text-tertiary">Agent will auto-create isolated feature scratch orgs on each ticket execution</span>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">neurology</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Auto-Attach Skills Stack</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">LWC-Generator, Apex-Test-Runner, Code-Reviewer-v3</span>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">3 Skills Selected</span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="lg:col-span-12 pt-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Estimated initial setup compute: 18s</span>
+<span class="font-mono-xs text-mono-xs text-outline-variant">/</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Autonomous verification enabled</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-1.5 bg-surface-container-high hover:bg-surface-dim text-on-surface rounded-xl font-label-md text-label-md transition-colors" id="cancelFormBtn" type="button">
+            Cancel
+          </button>
+<button class="flex items-center gap-space-xs px-space-xl py-1.5 bg-primary-container hover:bg-primary text-on-primary rounded-xl font-label-md text-label-md font-semibold transition-all shadow-md" id="createProjectActionBtn" type="submit">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+<span>Create Project</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Search & Filter Controls -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm mb-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<div class="flex flex-1 items-center gap-space-sm">
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-space-sm top-2 text-on-surface-variant text-[16px]">search</span>
+<input class="w-full h-8 pl-8 pr-space-sm bg-surface rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="Search projects by name, repo, or branch..." type="text"/>
+</div>
+<!-- Sandbox Filter Pill Buttons -->
+<div class="flex items-center bg-surface-container-low p-space-2xs rounded-xl">
+<button class="px-space-sm py-1 bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-semibold rounded-lg shadow-sm">All Sandboxes</button>
+<button class="px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">Salesforce (SFDX)</button>
+<button class="px-space-sm py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">Default (Docker)</button>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Jira Filter -->
+<div class="relative">
+<select class="h-8 pl-space-sm pr-7 bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded-xl appearance-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Jira: All Connections</option>
+<option>Jira: Acme Core (AG, CORE)</option>
+<option>Jira: Demo (DEMO)</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-xs top-2 text-on-surface-variant pointer-events-none text-[16px]">arrow_drop_down</span>
+</div>
+<!-- Readiness Filter -->
+<div class="relative">
+<select class="h-8 pl-space-sm pr-7 bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded-xl appearance-none focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option>Readiness: All States</option>
+<option>Readiness: Fully Ready</option>
+<option>Readiness: Warnings / Missing Skills</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-xs top-2 text-on-surface-variant pointer-events-none text-[16px]">arrow_drop_down</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant px-space-xs">4 of 4 projects</span>
+</div>
+</div>
+<!-- High Density Project Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-space-md font-semibold">Project & Details</th>
+<th class="py-2.5 px-space-md font-semibold">Repository</th>
+<th class="py-2.5 px-space-md font-semibold">Jira Key</th>
+<th class="py-2.5 px-space-md font-semibold">Sandbox & Org</th>
+<th class="py-2.5 px-space-md font-semibold">Readiness Health</th>
+<th class="py-2.5 px-space-md font-semibold">Status</th>
+<th class="py-2.5 px-space-md font-semibold">Latest Run</th>
+<th class="py-2.5 px-space-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Lead Priority Console (Highlighted / Selected) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group bg-surface-container-low/30">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-bold">
+                  LP
+                </div>
+<div class="flex flex-col min-w-0 max-w-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Lead Priority Console</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Enterprise LWC AI prioritization scoring</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs font-mono-sm text-mono-sm text-primary font-medium hover:underline cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">code</span>
+<span>salesforce-lead-console</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">branch: <span class="text-on-surface font-medium">main</span> (acme-eng)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs font-semibold rounded">AG</span>
+<span class="font-mono-xs text-mono-xs text-tertiary">Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-2xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-0.5 bg-surface-variant text-on-primary-fixed-variant font-mono-xs text-mono-xs rounded w-fit">
+<span class="material-symbols-outlined text-[12px]">cloud_done</span>
+<span>Salesforce (SFDX)</span>
+</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant truncate">qa-scratch-org-04</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> GitHub: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> SFDX: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">
+                  Skills: 4 attached
+                </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold rounded-full inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Active
+              </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-mono-xs text-mono-xs font-medium text-primary">
+<span class="material-symbols-outlined text-[14px] animate-spin">progress_activity</span>
+<span>AG-216: Running</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">3m ago · Codex 4.1</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Configure Project" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-primary rounded-lg transition-colors" title="Trigger Pipeline" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Expand View" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Agentic Pipeline Demo -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-bold">
+                  AP
+                </div>
+<div class="flex flex-col min-w-0 max-w-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Agentic Pipeline Demo</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Full autonomous E2E agent synthesis playground</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs font-mono-sm text-mono-sm text-primary font-medium hover:underline cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">code</span>
+<span>agentic-pipeline-demo</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">branch: <span class="text-on-surface font-medium">main</span> (acme-eng)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs font-semibold rounded">DEMO</span>
+<span class="font-mono-xs text-mono-xs text-tertiary">Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-2xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-0.5 bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded w-fit">
+<span class="material-symbols-outlined text-[12px]">terminal</span>
+<span>Default (Docker)</span>
+</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant truncate">isolated-node20-alpine</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> GitHub: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Codex: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">
+                  Skills: 5 attached
+                </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold rounded-full inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Active
+              </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-mono-xs text-mono-xs font-medium text-tertiary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>AG-214: Completed</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">1h ago · $8.82 est</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Configure Project" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-primary rounded-lg transition-colors" title="Trigger Pipeline" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Expand View" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: CRM Platform Core (WITH WARNING VALIDATION) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group bg-error-container/10">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-error-container text-on-error-container flex items-center justify-center font-headline-sm text-headline-sm font-bold">
+                  CP
+                </div>
+<div class="flex flex-col min-w-0 max-w-xs">
+<div class="flex items-center gap-space-2xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">CRM Platform Core</span>
+<span class="material-symbols-outlined text-error text-[16px]" title="Validation Warning: Missing Skills">warning</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Apex backend controllers and trigger framework</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs font-mono-sm text-mono-sm text-primary font-medium hover:underline cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">code</span>
+<span>crm-platform-core</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">branch: <span class="text-on-surface font-medium">develop</span> (acme-eng)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs font-semibold rounded">CORE</span>
+<span class="font-mono-xs text-mono-xs text-tertiary">Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-2xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-0.5 bg-surface-variant text-on-primary-fixed-variant font-mono-xs text-mono-xs rounded w-fit">
+<span class="material-symbols-outlined text-[12px]">cloud_done</span>
+<span>Salesforce (SFDX)</span>
+</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant truncate">prod-staging-org</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> GitHub: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-error-container text-on-error-container font-mono-xs text-mono-xs rounded font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">error</span> Skills: Missing required LWC skill
+                </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold rounded-full inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Configuring
+              </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1 font-mono-xs text-mono-xs font-medium text-error">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+<span>AG-208: Failed</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Yesterday · Assert failed</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="px-space-xs py-1 bg-error text-on-error rounded-lg font-mono-xs text-mono-xs font-semibold flex items-center gap-0.5" title="Fix Skill Stack" type="button">
+<span class="material-symbols-outlined text-[12px]">build</span>
+<span>Resolve</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Configure Project" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Expand View" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Webhook Gateway Service -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center font-headline-sm text-headline-sm font-bold">
+                  WG
+                </div>
+<div class="flex flex-col min-w-0 max-w-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Webhook Gateway Service</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">FastAPI event ingestion for external Jira webhooks</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-2xs font-mono-sm text-mono-sm text-primary font-medium hover:underline cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">code</span>
+<span>webhook-gateway-service</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">branch: <span class="text-on-surface font-medium">main</span> (maverick-sandbox)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs font-semibold rounded">CORE</span>
+<span class="font-mono-xs text-mono-xs text-tertiary">Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-2xs">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-0.5 bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded w-fit">
+<span class="material-symbols-outlined text-[12px]">terminal</span>
+<span>Default (Docker)</span>
+</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">N/A (Standalone)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-1 max-w-xs">
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface font-mono-xs text-mono-xs rounded flex items-center gap-0.5">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> GitHub: Ready
+                </span>
+<span class="px-space-xs py-0.5 bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">
+                  Skills: 2 attached
+                </span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold rounded-full inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Inactive
+              </span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">No runs yet</span>
+<span class="font-mono-xs text-mono-xs text-outline">Queue idle</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Configure Project" type="button">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-primary rounded-lg transition-colors" title="Trigger Pipeline" type="button">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg transition-colors" title="Expand View" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="p-space-sm bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Showing 4 active enterprise project configurations</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-lowest hover:bg-surface text-on-surface rounded-lg font-mono-xs text-mono-xs shadow-sm disabled:opacity-50" disabled="">Previous</button>
+<span class="px-space-sm font-mono-xs text-mono-xs text-on-surface font-semibold">Page 1 of 1</span>
+<button class="px-space-sm py-1 bg-surface-container-lowest hover:bg-surface text-on-surface rounded-lg font-mono-xs text-mono-xs shadow-sm disabled:opacity-50" disabled="">Next</button>
+</div>
+</div>
+</div>
+<!-- Project Detail Tabs Preview Area -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-2xl">
+<!-- Readiness Summary Banner -->
+<div class="p-space-md bg-surface-variant/40 flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Focused Project: Lead Priority Console</span>
+<span class="px-space-xs py-0.5 bg-primary text-on-primary font-mono-xs text-mono-xs rounded">qa-scratch-org-04</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ready for automated agent run execution. All 5 validation checks passed 4 minutes ago.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pipeline Readiness Score</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">100% Operational</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Dispatch AG-217</span>
+</button>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="px-space-md bg-surface-container-low flex items-center gap-space-xs overflow-x-auto">
+<button class="px-space-md py-2.5 font-label-md text-label-md font-semibold text-primary shadow-sm bg-surface-container-lowest rounded-t-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">overview</span>
+<span>Overview</span>
+</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">confirmation_number</span>
+<span>Tickets</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">8</span>
+</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">neurology</span>
+<span>Skills & Memory</span>
+<span class="px-1.5 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">4 Active</span>
+</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">alt_route</span>
+<span>Runs</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</button>
+<button class="px-space-md py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-t-lg transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+<span>Settings</span>
+</button>
+</div>
+<!-- Tab Content Preview Grid -->
+<div class="p-space-lg grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left 8-col: Architectural Topology & Agent Activity -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Active Pipeline Orchestration Topology</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Live autonomous stages executed by Codex + SFDX runner</span>
+</div>
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">Run ID: #AG-216-e41</span>
+</div>
+<!-- Mini DAG Workflow visualization -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-sm relative overflow-hidden">
+<!-- Step 1 -->
+<div class="w-full md:w-48 p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">01 • Ingest</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold text-xs">Jira Ticket Parse</span>
+<span class="font-mono-xs text-mono-xs text-tertiary font-medium">AG-216 · Passed (1.2s)</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] rotate-90 md:rotate-0">arrow_forward</span>
+<!-- Step 2 -->
+<div class="w-full md:w-48 p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">02 • Synthesis</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">check_circle</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold text-xs">Apex & LWC Codex</span>
+<span class="font-mono-xs text-mono-xs text-tertiary font-medium">Generated 4 files (8.4s)</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] rotate-90 md:rotate-0">arrow_forward</span>
+<!-- Step 3 (Active) -->
+<div class="w-full md:w-52 p-space-sm bg-surface-container-lowest rounded-xl shadow-sm flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-primary font-semibold">03 • Deploy & Test</span>
+<span class="material-symbols-outlined text-primary text-[16px] animate-spin">sync</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold text-xs">SFDX Scratch Org Deploy</span>
+<span class="font-mono-xs text-mono-xs text-primary font-medium">Deploying metadata (42s)</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px] rotate-90 md:rotate-0">arrow_forward</span>
+<!-- Step 4 -->
+<div class="w-full md:w-48 p-space-sm bg-surface-container-lowest/60 rounded-xl flex flex-col gap-1 relative opacity-75">
+<div class="flex items-center justify-between">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">04 • Pull Request</span>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">pending</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold text-xs">GitHub PR & Jira Close</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Queued</span>
+</div>
+</div>
+<!-- Monospaced Run Stream Preview -->
+<div class="bg-inverse-surface rounded-xl p-space-md text-inverse-on-surface font-mono-xs text-mono-xs flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between pb-1 text-outline-variant">
+<span class="flex items-center gap-1 font-semibold text-surface-tint">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              Live Agent Execution Stream
+            </span>
+<span>qa-scratch-org-04 (SFDX CLI v7.209.6)</span>
+</div>
+<div class="text-surface-dim font-mono-xs">[14:32:01.104] [INFO] Auth validated for DevHub alias 'HubOrg'</div>
+<div class="text-surface-dim font-mono-xs">[14:32:02.481] [AGENT] Synthesizing LWC component: force-app/main/default/lwc/leadPriorityScore/leadPriorityScore.js</div>
+<div class="text-surface-dim font-mono-xs">[14:32:05.902] [AGENT] Writing test suite: LeadPriorityControllerTest.cls (Coverage target: 85%)</div>
+<div class="text-inverse-primary font-mono-xs">[14:32:08.210] [SFDX] project deploy start --target-org qa-scratch-org-04 --wait 10</div>
+<div class="text-surface-variant font-mono-xs animate-pulse">> Running Apex unit tests in scratch org sandbox... [8 of 12 complete]</div>
+</div>
+</div>
+<!-- Right 4-col: Active Tools & Connected Services -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Configured Bindings</span>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Git Integration</span>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">Protected</span>
+</div>
+<div class="font-mono-xs text-mono-xs text-on-surface-variant">
+            Remote: <span class="text-on-surface font-medium">acme-eng/salesforce-lead-console</span><br/>
+            Webhook Events: <span class="text-on-surface">issues, pull_request, push</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">cloud</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Salesforce DevHub</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-tertiary font-semibold">Active 6d</span>
+</div>
+<div class="font-mono-xs text-mono-xs text-on-surface-variant">
+            Target Org: <span class="text-on-surface font-medium">qa-scratch-org-04</span><br/>
+            Edition: <span class="text-on-surface">Enterprise (SFDX Config v58.0)</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Attached Skills (4)</span>
+</div>
+<button class="font-mono-xs text-mono-xs text-primary hover:underline">Edit</button>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-space-xs py-space-2xs bg-surface-container-lowest text-on-surface font-mono-xs text-mono-xs rounded shadow-sm">LWC-Generator</span>
+<span class="px-space-xs py-space-2xs bg-surface-container-lowest text-on-surface font-mono-xs text-mono-xs rounded shadow-sm">Apex-Runner</span>
+<span class="px-space-xs py-space-2xs bg-surface-container-lowest text-on-surface font-mono-xs text-mono-xs rounded shadow-sm">Soql-Optimizer</span>
+<span class="px-space-xs py-space-2xs bg-surface-container-lowest text-on-surface font-mono-xs text-mono-xs rounded shadow-sm">Code-Reviewer</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple toggle logic for the interactive 'New Project' drawer/card
+  const toggleBtn = document.getElementById('toggleCreateProjectBtn');
+  const projectCard = document.getElementById('newProjectCard');
+  const closeBtn = document.getElementById('closeDrawerBtn');
+  const cancelBtn = document.getElementById('cancelFormBtn');
+  const sfdxBtn = document.getElementById('sandboxSfdxBtn');
+  const defaultBtn = document.getElementById('sandboxDefaultBtn');
+
+  function toggleDrawer() {
+    if (projectCard.classList.contains('hidden')) {
+      projectCard.classList.remove('hidden');
+      projectCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      projectCard.classList.add('hidden');
+    }
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', () => projectCard.classList.add('hidden'));
+  if (cancelBtn) cancelBtn.addEventListener('click', () => projectCard.classList.add('hidden'));
+
+  // Sandbox toggle interaction
+  if (sfdxBtn && defaultBtn) {
+    sfdxBtn.addEventListener('click', () => {
+      sfdxBtn.className = "flex items-center justify-center gap-space-xs h-8 px-space-sm bg-primary-container text-on-primary rounded-xl font-label-md text-label-md shadow-sm transition-all font-medium";
+      defaultBtn.className = "flex items-center justify-center gap-space-xs h-8 px-space-sm bg-surface hover:bg-surface-container-high rounded-xl text-on-surface-variant font-label-md text-label-md transition-all";
+    });
+
+    defaultBtn.addEventListener('click', () => {
+      defaultBtn.className = "flex items-center justify-center gap-space-xs h-8 px-space-sm bg-primary-container text-on-primary rounded-xl font-label-md text-label-md shadow-sm transition-all font-medium";
+      sfdxBtn.className = "flex items-center justify-center gap-space-xs h-8 px-space-sm bg-surface hover:bg-surface-container-high rounded-xl text-on-surface-variant font-label-md text-label-md transition-all";
+    });
+  }
+</script></main></div></body></html>

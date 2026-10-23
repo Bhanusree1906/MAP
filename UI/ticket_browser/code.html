@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#737686",
+          "background": "#f8f9ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary-container": "#8a4cfc",
+          "on-primary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed": "#eaddff",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "inverse-surface": "#213145",
+          "surface-variant": "#d3e4fe",
+          "tertiary": "#005a89",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "error": "#ba1a1a",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "secondary-fixed-dim": "#d2bbff",
+          "surface-container-high": "#dce9ff",
+          "surface-container": "#e5eeff",
+          "inverse-on-surface": "#eaf1ff",
+          "on-tertiary-container": "#e7f2ff",
+          "error-container": "#ffdad6",
+          "surface-tint": "#0053db",
+          "primary-container": "#2563eb",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed": "#00174b",
+          "primary-fixed-dim": "#b4c5ff",
+          "tertiary-fixed-dim": "#93ccff",
+          "outline-variant": "#c3c6d7",
+          "tertiary-container": "#0073ae",
+          "on-secondary-container": "#fffbff",
+          "on-surface": "#0b1c30",
+          "on-surface-variant": "#434655",
+          "on-secondary-fixed": "#25005a",
+          "secondary": "#712ae2",
+          "on-background": "#0b1c30",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed": "#001d31",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-low": "#eff4ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-lg": "16px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-md": "12px",
+          "inspector-width": "380px",
+          "space-xl": "20px",
+          "space-sm": "8px",
+          "sidebar-expanded": "240px",
+          "space-2xs": "2px",
+          "sidebar-collapsed": "48px",
+          "space-2xl": "24px",
+          "space-3xl": "32px"
+        },
+        "fontFamily": {
+          "mono-xs": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "mono-md": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-sm": ["Inter"],
+          "mono-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+          "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "mono-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "headline-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "mono-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-sidebar-expanded bg-surface-container-low z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="Maverick Agent Pipeline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X3LI9T7BP7lvUnwQ9Bzr6dLKIWbjLB3s-whXCiJ0NCplB9SqQk2L_hq1o1zRiYesk5UW16ZQLTqHaHcrI-sNezK2ejgMoAAjG7quu8z-KAgzU2a5xW07mmgxBj54N1B-qV5r4phpr_9F_R5enRBC0xMk7AZ1_dqK190d9XE0hH59xRVNaW2F6v_CLR-w3_o_KbG54B9GNJZBu3Bh2SMd7Tp5zS0LFlhLVkVsNhxmtcIBNZmR19HIF5-Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Maverick</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Pipeline</span></div></div><span class="px-space-xs py-space-2xs bg-surface-variant font-mono-xs text-mono-xs text-on-surface font-medium rounded-lg">v2.4</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-primary text-[18px]">corporate_fare</span><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-on-surface font-medium truncate">Acme Global Delivery</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">Enterprise Prod</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div><nav class="flex flex-col gap-space-2xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-md text-label-md">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">layers</span><span class="font-label-md text-label-md">Projects</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">6</span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-xl transition-colors bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]" data-path="ticket-browser" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">Ticket Browser</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">14</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pipeline-runs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-label-md text-label-md">Pipeline Runs</span></div><div class="flex items-center gap-space-2xs px-space-xs py-space-2xs bg-surface-variant rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-mono-xs text-mono-xs text-primary">3</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="skills-catalog" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">neurology</span><span class="font-label-md text-label-md">Skills Catalog</span></div><span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">2</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="connections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-md text-label-md">Connections</span></div><span class="w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings-audit" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">security</span><span class="font-label-md text-label-md">Settings / Audit</span></div></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="font-mono-xs text-mono-xs text-on-surface">SFDX & Codex</span></div><span class="font-mono-xs text-mono-xs text-on-surface-variant">v4.1</span></div><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[14px]">database</span><span class="font-mono-xs text-mono-xs text-on-surface">Vector Store</span></div><span class="font-mono-xs text-mono-xs text-tertiary font-medium">Synced</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant px-space-xs"><div class="flex items-center gap-space-2xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Operational</span></div><a class="font-label-sm text-label-sm hover:text-on-surface" href="#">Docs</a></div></div></aside><div class="pl-sidebar-expanded"><header class="fixed top-0 left-sidebar-expanded right-0 h-14 bg-surface/80 backdrop-blur-xl z-30 flex items-center justify-between px-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="text-on-surface font-medium">Maverick</span><span class="text-outline-variant">/</span><span class="text-on-surface">Console</span></div><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search tickets, runs, PRs...</span><kbd class="font-mono-xs text-mono-xs bg-surface px-space-xs py-space-2xs rounded text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-xl"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2 Active Runs</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">· $14.28 est</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-[0_1px_4px_rgba(37,99,235,0.2)]" type="button"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Start Pipeline Run</span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg relative hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(0,0,0,0.06)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqebjczDE5fgYNndNkNdGB8S-a3Z7rXVtrAZDnMCXt7HoWGAkfCfMJ3LdzAdIDxaonGmM5X0ioj9SorhsEXsKcbo8BO6tX1lFxXv_C8FGcQYj66sg6j9rkmdS-zDx5mxPAExIpXCzyRe48GDItvTehm6Yg5Pwk8N_x4cAyQbOruI_SIK-euVgOlcjSNZxFKLlDZbdhVZvodMIW1o6X4LqUnoWa3jrm4ig8__Pcd69DhJQEqbfthupj"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-mono-xs text-mono-xs text-on-surface-variant leading-tight">Staff AI Lead</span></div></div></div></header><main class="w-full pt-14 px-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Workspace Context & Breadcrumbs -->
+<div class="flex items-center justify-between py-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="text-on-surface-variant">Workspace</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Ticket Browser</span>
+</div>
+<span class="px-space-xs py-space-2xs bg-surface-container font-mono-xs text-mono-xs text-primary font-medium rounded-lg">Jira Cloud Sync • LIVE</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-2xs px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[16px]">sync</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Last synced 42s ago</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container hover:bg-surface-container-high rounded-xl text-on-surface font-label-sm text-label-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>View Options</span>
+</button>
+</div>
+</div>
+<!-- Main Split Layout (Ticket List & Detail View) -->
+<div class="grid grid-cols-12 gap-space-lg items-start pb-space-3xl">
+<!-- LEFT PANE: Dense Jira-Style Ticket List (~42%) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-space-md">
+<!-- Search and Filter Control Center -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
+<!-- Text Search -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">search</span>
+<input class="w-full h-8 pl-8 pr-8 bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-outline rounded-lg outline-none focus:bg-surface-container transition-colors" id="ticket-search-input" placeholder="Search tickets by key, summary, or text..." type="text"/>
+<kbd class="absolute right-2 top-1.5 font-mono-xs text-mono-xs px-1.5 py-0.5 bg-surface text-on-surface-variant rounded">↵</kbd>
+</div>
+<!-- Filter Row -->
+<div class="grid grid-cols-4 gap-space-xs">
+<!-- Status Select -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-space-2xs">Status</label>
+<div class="relative">
+<select class="w-full h-7 pl-1.5 pr-5 bg-surface-container-low font-mono-xs text-mono-xs text-on-surface rounded-lg appearance-none cursor-pointer focus:bg-surface-container">
+<option>All</option>
+<option>To Do</option>
+<option selected="">In Progress</option>
+<option>In Review</option>
+<option>Done</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1.5 pointer-events-none text-outline text-[14px]">expand_more</span>
+</div>
+</div>
+<!-- Priority Select -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-space-2xs">Priority</label>
+<div class="relative">
+<select class="w-full h-7 pl-1.5 pr-5 bg-surface-container-low font-mono-xs text-mono-xs text-on-surface rounded-lg appearance-none cursor-pointer focus:bg-surface-container">
+<option>All</option>
+<option>Highest</option>
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1.5 pointer-events-none text-outline text-[14px]">expand_more</span>
+</div>
+</div>
+<!-- Assignee Select -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-space-2xs">Assignee</label>
+<div class="relative">
+<select class="w-full h-7 pl-1.5 pr-5 bg-surface-container-low font-mono-xs text-mono-xs text-on-surface rounded-lg appearance-none cursor-pointer focus:bg-surface-container">
+<option>All</option>
+<option selected="">Elena R.</option>
+<option>Alex Chen</option>
+<option>Unassigned</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1.5 pointer-events-none text-outline text-[14px]">expand_more</span>
+</div>
+</div>
+<!-- Issue Type Select -->
+<div class="flex flex-col">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-space-2xs">Type</label>
+<div class="relative">
+<select class="w-full h-7 pl-1.5 pr-5 bg-surface-container-low font-mono-xs text-mono-xs text-on-surface rounded-lg appearance-none cursor-pointer focus:bg-surface-container">
+<option>All</option>
+<option>Story</option>
+<option>Bug</option>
+<option>Task</option>
+<option>Enhance</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1.5 pointer-events-none text-outline text-[14px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Filter Metrics Strip -->
+<div class="flex items-center justify-between pt-space-xs font-mono-xs text-mono-xs text-on-surface-variant">
+<span>5 matching tickets</span>
+<button class="text-primary hover:underline" type="button">Clear filters</button>
+</div>
+</div>
+<!-- Ticket Items List -->
+<div class="flex flex-col gap-space-xs" id="ticket-list-container">
+<!-- Row 1: SELECTED (AG-216) -->
+<div class="ticket-row group cursor-pointer p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-all relative overflow-hidden bg-gradient-to-r from-primary/10 via-surface-container-lowest to-surface-container-lowest">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-primary/10 text-primary font-mono-xs text-mono-xs font-semibold rounded">
+<span class="material-symbols-outlined text-[13px] align-middle mr-0.5">bookmark</span>AG-216
+              </span>
+<span class="material-symbols-outlined text-error text-[16px]" title="Highest Priority">keyboard_double_arrow_up</span>
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                Ready for Agent Run
+              </span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">14m ago</span>
+</div>
+<h3 class="mt-space-xs font-headline-sm text-headline-sm text-on-surface font-semibold line-clamp-2 leading-snug">
+            Build Lead Priority Console LWC with dynamic AI score card and bulk qualification action
+          </h3>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-4 h-4 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-semibold text-[9px]">ER</div>
+<span class="text-on-surface font-medium">Elena Rostova</span>
+</div>
+<span class="px-space-xs py-0.5 bg-primary-fixed text-on-primary-fixed rounded font-medium">In Progress</span>
+</div>
+</div>
+<!-- Row 2: (AG-214) -->
+<div class="ticket-row group cursor-pointer p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-all">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-surface-container text-on-surface font-mono-xs text-mono-xs font-semibold rounded">
+<span class="material-symbols-outlined text-tertiary text-[13px] align-middle mr-0.5">check_box</span>AG-214
+              </span>
+<span class="material-symbols-outlined text-error text-[16px]" title="High Priority">keyboard_arrow_up</span>
+<span class="px-space-xs py-space-2xs bg-surface-variant text-primary font-mono-xs text-mono-xs rounded font-medium">
+                Run #42 Completed
+              </span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">2h ago</span>
+</div>
+<h3 class="mt-space-xs font-headline-sm text-headline-sm text-on-surface font-medium line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+            Automate GitHub PR Webhook Dispatcher with payload validation
+          </h3>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-4 h-4 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-semibold text-[9px]">AC</div>
+<span>Alex Chen</span>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container-high text-on-surface rounded">In Review</span>
+</div>
+</div>
+<!-- Row 3: (AG-219) -->
+<div class="ticket-row group cursor-pointer p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-all">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-error-container text-on-error-container font-mono-xs text-mono-xs font-semibold rounded">
+<span class="material-symbols-outlined text-[13px] align-middle mr-0.5">bug_report</span>AG-219
+              </span>
+<span class="material-symbols-outlined text-error text-[16px]" title="High Priority">keyboard_arrow_up</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">4h ago</span>
+</div>
+<h3 class="mt-space-xs font-headline-sm text-headline-sm text-on-surface font-medium line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+            Apex Trigger optimization for bulk opportunity inserts exceeding SOQL query limits
+          </h3>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[14px]">person_off</span>
+<span class="italic">Unassigned</span>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface-variant rounded">To Do</span>
+</div>
+</div>
+<!-- Row 4: (AG-221) -->
+<div class="ticket-row group cursor-pointer p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-all">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-primary/10 text-primary font-mono-xs text-mono-xs font-semibold rounded">
+<span class="material-symbols-outlined text-[13px] align-middle mr-0.5">bookmark</span>AG-221
+              </span>
+<span class="material-symbols-outlined text-outline text-[16px]" title="Medium Priority">remove</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">1d ago</span>
+</div>
+<h3 class="mt-space-xs font-headline-sm text-headline-sm text-on-surface font-medium line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+            Implement Custom Metadata Type cache loader for agent runtime settings
+          </h3>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[14px]">person_off</span>
+<span class="italic">Unassigned</span>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface-variant rounded">To Do</span>
+</div>
+</div>
+<!-- Row 5: (AG-208) -->
+<div class="ticket-row group cursor-pointer p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:bg-surface-container-low transition-all">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-error-container text-on-error-container font-mono-xs text-mono-xs font-semibold rounded">
+<span class="material-symbols-outlined text-[13px] align-middle mr-0.5">bug_report</span>AG-208
+              </span>
+<span class="material-symbols-outlined text-error text-[16px]" title="Highest Priority">keyboard_double_arrow_up</span>
+</div>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">1d ago</span>
+</div>
+<h3 class="mt-space-xs font-headline-sm text-headline-sm text-on-surface font-medium line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+            Fix Salesforce auth token expiration refresh race condition during batch sync
+          </h3>
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-mono-xs text-mono-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-4 h-4 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-semibold text-[9px]">SJ</div>
+<span>Sarah Jenkins</span>
+</div>
+<span class="px-space-xs py-0.5 bg-surface-container text-on-surface-variant rounded">To Do</span>
+</div>
+</div>
+</div>
+<!-- Quick Jira Sync Banner -->
+<div class="p-space-sm bg-surface-container-high rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-primary text-[18px]">sync_saved_locally</span>
+<span class="font-label-sm text-label-sm">Webhook active: <span class="font-mono-xs text-mono-xs">acme.atlassian.net</span></span>
+</div>
+<button class="font-label-sm text-label-sm text-primary font-medium hover:underline" type="button">Force Pull</button>
+</div>
+</div>
+<!-- RIGHT PANE: Rich Jira-Style Ticket Detail View (~58%) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<!-- Top Action Bar & Jira Identity Header -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<!-- Jira Breadcrumb & Key -->
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">bookmark</span>
+<a class="hover:text-on-surface" href="#">Acme Engineering</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-on-surface" href="#">Sprints</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Sprint 24</span>
+<span class="text-outline-variant">/</span>
+<span class="font-mono-md text-mono-md text-primary font-semibold px-space-xs py-0.5 bg-primary/10 rounded">AG-216</span>
+</div>
+<!-- Secondary Actions -->
+<div class="flex items-center gap-space-xs">
+<a class="flex items-center gap-1 px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" href="#">
+<span>View in Jira</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+<button class="flex items-center gap-1 px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded-lg font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+<span>Assign to Agent</span>
+</button>
+<button class="p-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</div>
+<!-- Issue Title -->
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">
+          Build Lead Priority Console LWC with dynamic AI score card and bulk qualification action
+        </h1>
+<!-- Primary Execution Button in Header -->
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-low p-space-sm rounded-xl">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ready for Autonomous Execution</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Telemetry verified: Apex, SLDS & Jest skills matched</span>
+</div>
+</div>
+<button class="flex items-center gap-space-xs px-space-lg py-2 bg-primary-container text-on-primary hover:bg-primary rounded-xl font-label-md text-label-md font-semibold transition-all shadow-md active:scale-95" id="header-create-run-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span>Create Pipeline Run</span>
+</button>
+</div>
+<!-- Metadata Grid Strip -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-space-sm p-space-sm bg-surface rounded-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Status</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-md text-label-md text-on-surface font-medium">In Progress</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Priority</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-error text-[16px]">keyboard_double_arrow_up</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Highest</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Assignee</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<div class="w-4 h-4 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-semibold text-[9px]">ER</div>
+<span class="font-label-md text-label-md text-on-surface font-medium">Elena Rostova</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Reporter</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<div class="w-4 h-4 rounded-full bg-surface-dim flex items-center justify-center text-on-surface font-semibold text-[9px]">MV</div>
+<span class="font-label-md text-label-md text-on-surface">Marcus Vance (PM)</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Components</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="px-1.5 py-0.5 bg-surface-container font-mono-xs text-mono-xs text-on-surface rounded">Salesforce LWC</span>
+<span class="px-1.5 py-0.5 bg-surface-container font-mono-xs text-mono-xs text-on-surface rounded">Apex</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Target Sprint</span>
+<span class="font-mono-xs text-mono-xs text-on-surface font-medium mt-1">Sprint 24 (Oct 24 - Nov 07)</span>
+</div>
+</div>
+</div>
+<!-- Rich Description Document Body (Jira-Style rendering) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-lg">
+<!-- Heading 2: Business Context & Objective -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold">
+              Business Context & Objective
+            </h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Inside sales representatives at enterprise tiers require an intuitive, low-latency console view to prioritize daily outbound outreach based on real-time AI propensity scores. Currently, reps query disparate report tabs which slows response time during high-velocity inbound qualification windows. This component embeds directly on the Lead list view home and Opportunity launchpad, enabling 1-click bulk qualification and automated dispatch into HubSpot routing channels.
+          </p>
+</section>
+<!-- Heading 3: Functional Requirements -->
+<section class="flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">format_list_bulleted</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+              Functional Requirements
+            </h3>
+</div>
+<!-- Bulleted List -->
+<ul class="space-y-space-xs font-body-md text-body-md text-on-surface-variant pl-space-md">
+<li class="flex items-start gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span>Responsive Lightning Web Component (<code class="font-mono-xs text-mono-xs bg-surface-container px-1 py-0.5 rounded text-primary">leadPriorityConsole</code>) compliant with Lightning Experience Desktop and Mobile Console specifications.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span>Wire service adapter consuming <code class="font-mono-xs text-mono-xs bg-surface-container px-1 py-0.5 rounded text-on-surface">LeadScoringService.cls</code> telemetry with reactive caching keys.</span>
+</li>
+<li class="flex items-start gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span>Visual urgency badges mapped directly to propensity ranges:
+                <span class="inline-flex gap-1 ml-1 align-baseline">
+<span class="px-1.5 py-0.2 bg-error-container text-on-error-container font-mono-xs text-mono-xs rounded">High (Red) > 85</span>
+<span class="px-1.5 py-0.2 bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">Medium (Amber) 50-84</span>
+<span class="px-1.5 py-0.2 bg-surface-variant text-primary font-mono-xs text-mono-xs rounded">Nurture (Blue) < 50</span>
+</span>
+</span>
+</li>
+</ul>
+<!-- Ordered List -->
+<div class="mt-space-xs bg-surface-container-low p-space-md rounded-xl">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider">Workflow Sequence</span>
+<ol class="mt-space-xs space-y-space-xs font-body-md text-body-md text-on-surface-variant pl-space-md list-decimal">
+<li>Display top 20 leads sorted by propensity score descending with live pagination.</li>
+<li>Support single-click 'Qualify & Create Opportunity' modal dialog with auto-populated contact fields.</li>
+<li>Log audit event to <code class="font-mono-xs text-mono-xs bg-surface-container px-1 py-0.5 rounded text-on-surface">Agent_Audit_Log__c</code> custom object upon state transition for compliance observability.</li>
+</ol>
+</div>
+</section>
+<!-- Interactive Acceptance Checklist -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Acceptance Criteria</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">2 of 4 Completed</span>
+</div>
+<div class="flex flex-col gap-space-xs bg-surface p-space-md rounded-xl">
+<label class="flex items-center gap-space-sm cursor-pointer hover:text-on-surface text-on-surface-variant">
+<input checked="" class="w-4 h-4 rounded text-primary bg-surface-container-low focus:ring-0" disabled="" type="checkbox"/>
+<span class="font-body-md text-body-md line-through text-on-surface-variant">Verify SFDX project structure (<code class="font-mono-xs text-mono-xs">force-app/main/default/lwc/leadPriorityConsole</code>)</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer hover:text-on-surface text-on-surface-variant">
+<input checked="" class="w-4 h-4 rounded text-primary bg-surface-container-low focus:ring-0" disabled="" type="checkbox"/>
+<span class="font-body-md text-body-md line-through text-on-surface-variant">Ensure 85%+ code coverage on accompanying Apex unit tests</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer hover:text-on-surface text-on-surface">
+<input class="w-4 h-4 rounded text-primary bg-surface-container-low focus:ring-0" id="check-fls" type="checkbox"/>
+<span class="font-body-md text-body-md">Enforce FLS (Field-Level Security) and CRUD permission checks in Apex controller</span>
+</label>
+<label class="flex items-center gap-space-sm cursor-pointer hover:text-on-surface text-on-surface">
+<input class="w-4 h-4 rounded text-primary bg-surface-container-low focus:ring-0" id="check-jest" type="checkbox"/>
+<span class="font-body-md text-body-md">Add Jest tests for LWC component rendering and event dispatching</span>
+</label>
+</div>
+</section>
+<!-- Monospaced Code Block -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Expected Wire Adapter Signature</span>
+<button class="font-mono-xs text-mono-xs text-primary hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[13px]">content_copy</span> Copy
+            </button>
+</div>
+<div class="p-space-md bg-inverse-surface rounded-xl text-inverse-on-surface font-mono-sm text-mono-sm overflow-x-auto shadow-sm">
+<span class="text-outline-variant">// Expected Wire Adapter signature:</span><br/>
+<span class="text-primary-fixed">import</span> getPrioritizedLeads <span class="text-primary-fixed">from</span> <span class="text-secondary-fixed">'@salesforce/apex/LeadPriorityController.getPrioritizedLeads'</span>;<br/>
+<span class="text-outline-variant">// Agent runtime will inject userMode constraint automatically</span>
+</div>
+</section>
+<!-- Subtasks Table -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Subtasks</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">2 subtasks linked</span>
+</div>
+<div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-low">
+<div class="grid grid-cols-12 px-space-md py-2 font-mono-xs text-mono-xs text-on-surface-variant uppercase font-semibold">
+<span class="col-span-3">Key</span>
+<span class="col-span-6">Summary</span>
+<span class="col-span-3 text-right">Status</span>
+</div>
+<div class="grid grid-cols-12 px-space-md py-2.5 bg-surface-container-lowest items-center hover:bg-surface-container-low transition-colors">
+<div class="col-span-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px]">task_alt</span>
+<span class="font-mono-xs text-mono-xs text-primary font-medium">AG-217</span>
+</div>
+<span class="col-span-6 font-body-sm text-body-sm text-on-surface truncate">Apex Controller with WITH USER_MODE query</span>
+<div class="col-span-3 flex justify-end">
+<span class="px-2 py-0.5 bg-surface-variant text-on-surface font-mono-xs text-mono-xs rounded font-medium">Done</span>
+</div>
+</div>
+<div class="grid grid-cols-12 px-space-md py-2.5 bg-surface-container-lowest items-center hover:bg-surface-container-low transition-colors">
+<div class="col-span-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]">radio_button_checked</span>
+<span class="font-mono-xs text-mono-xs text-primary font-medium">AG-218</span>
+</div>
+<span class="col-span-6 font-body-sm text-body-sm text-on-surface truncate">LWC HTML template and SLDS styling</span>
+<div class="col-span-3 flex justify-end">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed font-mono-xs text-mono-xs rounded font-medium">In Progress</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Attachments Section -->
+<section class="flex flex-col gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Attachments (2)</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Attachment 1: Figma Mockup with Visual Mock Preview -->
+<div class="p-space-sm bg-surface rounded-xl flex items-center gap-space-sm hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-surface-container flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="High fidelity user interface wireframe design of a Salesforce Lead Priority Console dashboard with tabular data, status indicators, and clean typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO5mW7IdFd2Gp_ZzYtTpv9NWHJe7rgEekJzPE14fxZaqqhhTBeMoIW9PkQA2_whmHeshBs5RNFBBPVq_LKUarc7vgGllsLQsDgJdSstV3sIpEHDwrezd4y-Shz9B6RQ6246ZN3Xm_3SlRR8N6RX7uYrinPVlL5UrNSX2jFCFfDkNUlBLq7l4CHU28sxeFiQp7C3EcDhRddJhsvImv-bTHgq4BlJLXJqI0v6SoNvLqWAQMU2qm55Bjj"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">Figma-mockup-v2.png</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">2.4 MB • Updated yesterday</span>
+</div>
+</div>
+<!-- Attachment 2: JSON Spec -->
+<div class="p-space-sm bg-surface rounded-xl flex items-center gap-space-sm hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">data_object</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">Lead_Scoring_Payload_Spec.json</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">14 KB • JSON Schema</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Agent Pipeline Action Footer -->
+<div class="sticky bottom-4 z-20 bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm shrink-0">
+<span class="material-symbols-outlined text-[20px]">neurology</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Maverick Agent Pipeline is ready</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+<p class="font-mono-xs text-mono-xs text-on-surface-variant">
+              4 skills detected: <span class="text-primary font-medium">salesforce-lwc-generator</span>, <span class="text-primary font-medium">apex-test-suite</span>, <span class="text-primary font-medium">sfdx-deployer</span>, <span class="text-primary font-medium">jira-audit-sync</span>
+</p>
+</div>
+</div>
+<button class="w-full md:w-auto flex items-center justify-center gap-space-xs px-space-xl py-2 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md font-semibold rounded-xl transition-all shadow-md active:scale-95 shrink-0" id="sticky-create-run-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Create Pipeline Run</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    // Ticket row click interaction simulation
+    const ticketRows = document.querySelectorAll('.ticket-row');
+    ticketRows.forEach(row => {
+      row.addEventListener('click', () => {
+        ticketRows.forEach(r => {
+          r.classList.remove('bg-gradient-to-r', 'from-primary/10', 'via-surface-container-lowest', 'to-surface-container-lowest');
+          const leftBar = r.querySelector('.absolute.left-0');
+          if (leftBar) leftBar.remove();
+        });
+        
+        row.classList.add('bg-gradient-to-r', 'from-primary/10', 'via-surface-container-lowest', 'to-surface-container-lowest');
+        const bar = document.createElement('div');
+        bar.className = 'absolute left-0 top-0 bottom-0 w-1 bg-primary';
+        row.prepend(bar);
+      });
+    });
+
+    // Pipeline Run CTA Trigger notification simulation
+    const runButtons = [
+      document.getElementById('header-create-run-btn'),
+      document.getElementById('sticky-create-run-btn')
+    ];
+
+    runButtons.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Initializing Agent Run...</span>';
+          btn.classList.add('opacity-80', 'pointer-events-none');
+          
+          setTimeout(() => {
+            btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span><span>Run Dispatched!</span>';
+            btn.classList.remove('bg-primary-container', 'hover:bg-primary');
+            btn.classList.add('bg-secondary-container', 'text-on-secondary-container');
+            
+            setTimeout(() => {
+              btn.innerHTML = originalText;
+              btn.classList.remove('opacity-80', 'pointer-events-none', 'bg-secondary-container', 'text-on-secondary-container');
+              btn.classList.add('bg-primary-container', 'hover:bg-primary');
+            }, 3000);
+          }, 1200);
+        });
+      }
+    });
+
+    // Live search filter feedback
+    const searchInput = document.getElementById('ticket-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        ticketRows.forEach(row => {
+          const text = row.innerText.toLowerCase();
+          if (text.includes(query)) {
+            row.style.display = 'block';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    }
+  })();
+</script></main></div></body></html>

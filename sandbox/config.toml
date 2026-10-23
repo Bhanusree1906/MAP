@@ -1,0 +1,15 @@
+# Image fallback only. Pipeline runs overwrite this file at sandbox boot
+# (see agents/pipeline_agent/sandbox_runtime.py) with the model pinned in
+# CODEX_MODEL / CODEX_PLANNING_MODEL / CODEX_EXECUTION_MODEL. Unset, Codex
+# CLI defaults to gpt-5.6-sol which burns ChatGPT credits quickly.
+#
+# No GitHub MCP server: the pipeline opens pull requests itself with the
+# `gh` CLI after the engine returns (see SandboxManager.open_pull_request).
+model = "gpt-5.6-luna"
+model_reasoning_effort = "low"
+model_reasoning_summary = "none"
+model_verbosity = "low"
+
+[agents]
+max_threads = 2
+max_depth = 1

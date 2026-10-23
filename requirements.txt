@@ -1,0 +1,16 @@
+# Pinned to the versions this codebase is developed and CI-tested against.
+# deepagents and the langchain-* packages ship breaking changes frequently,
+# so bump these deliberately (run the test suite + a real pipeline run) rather
+# than letting them float.
+sqlalchemy==2.0.51
+llm-sandbox[docker]==0.3.44
+deepagents==0.7.5
+python-dotenv==1.2.2
+langchain-mcp-adapters==0.3.2
+langgraph==1.2.10
+langgraph-checkpoint==4.2.0
+fastapi==0.141.1
+uvicorn[standard]==0.52.1
+httpx==0.28.1
+pydantic==2.13.4
+cryptography==50.0.0

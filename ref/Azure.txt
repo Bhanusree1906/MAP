@@ -1,0 +1,1605 @@
+STEP
+Codex model gpt-5.6-terra (reasoning: medium)
+STEP
+Installing skill experience-lwc-generate@1 (codex)
+STEP
+Installing skill salesforce-developer@1 (codex)
+STEP
+Installing skill writing-plans@1 (codex)
+STEP
+Installing skill salesforce-flow-design@1 (codex)
+TIME
+skill install: 3141 ms
+TIME
+project memory install: 0 ms
+STEP
+Folded 4 skills into AGENTS.md
+STEP
+Cloning https://github.com/Hari13-12/Maverick-Pipeline-Demo.git
+TIME
+git clone: 2437 ms
+STEP
+Configuring git identity and push credentials
+STEP
+Writing TICKET.md
+STEP
+→ run_codex(instruction=First, check whatever Skills are available to you and open any whose descriptio…)
+ERROR
+Reading additional input from stdin...
+OpenAI Codex v0.154.0
+--------
+workdir: /workspace
+model: gpt-5.6-terra
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a09081-a6c6-78e1-9e3d-49ff6f43ec35
+--------
+user
+
+First, check whatever Skills are available to you and open any whose description matches this ticket's domain.
+Then, implement the approved plan detailed in TICKET.md.
+After implementing the plan, run the relevant tests as described in TICKET.md.
+Commit your changes using the git identity: user.name "pipeline-agent", user.email "pipeline-agent@users.noreply.github.com".
+Create a new, descriptively-named branch for these changes and push that branch to origin.
+Do NOT open a pull request.
+State the exact branch name you pushed clearly in your response.
+
+codex
+I’ll inspect the ticket and repository, apply the relevant Salesforce/LWC guidance if the plan touches those areas, then implement, test, commit, and push a dedicated branch.
+exec
+/bin/bash -lc "pwd && rg --files -g 'TICKET.md' -g 'AGENTS.md' -g 'package.json' -g 'sfdx-project.json' -g 'README*' -g 'jest.config.*' | sed -n '1,160p' && git status --short --branch && git remote -v" in /workspace
+ succeeded in 0ms:
+/workspace
+TICKET.md
+sfdx-project.json
+README.md
+## feature/ag-212-lead-priority...origin/feature/ag-212-lead-priority
+origin	https://github.com/Hari13-12/Maverick-Pipeline-Demo.git (fetch)
+origin	https://github.com/Hari13-12/Maverick-Pipeline-Demo.git (push)
+
+exec
+/bin/bash -lc "sed -n '1,260p' TICKET.md && git log -1 --oneline && rg --files force-app | sed -n '1,240p'" in /workspace
+ succeeded in 0ms:
+# 2: Automatically Set Case Priority Based on Case Origin
+
+- Type: Issue
+- Status: To Do
+- Assigned to: Hari Krishna
+- Priority: 2
+- Area: FirstProject
+
+## Description
+
+Cases are created in Salesforce from different channels such as Web, Email, Phone, and other sources.
+The Support team wants Cases created through Phone to be treated as more urgent than Cases coming from other channels.
+Currently, Case Priority is selected manually, which can result in inconsistent prioritization.
+This ticket will automate Case Priority based on the standard Case Origin field.
+Objective
+Create a Salesforce Record-Triggered Flow on the standard Case object.
+The Flow must automatically set Case Priority using the following business rules:
+Case Origin = Phone → Priority = High
+Any other Case Origin → Priority = Medium
+Blank Case Origin → Priority = Medium
+The Flow must run when:
+A Case is created
+Case Origin is changed on an existing Case
+No Apex implementation is required.
+Salesforce Object
+Use only the standard Salesforce object:
+Case
+Existing Standard Fields
+Use only the following existing Case fields:
+Origin
+Priority
+Do not create any new custom object or custom field as part of this ticket.
+Flow Type
+Create a:
+Record-Triggered Flow
+Object
+Case
+Trigger
+Run the Flow when a Case is:
+Created
+Updated
+Optimization
+Configure the Flow as:
+Fast Field Updates / Before Save
+The Flow only needs to update the triggering Case record.
+Flow Name
+Flow Label:
+Case - Set Priority from Origin
+Suggested API Name:
+Case_Set_Priority_From_Origin
+Entry Behavior
+On Create
+The Flow must evaluate every newly created Case.
+On Update
+The Flow should execute when:
+Case.Origin
+changes.
+Updates to unrelated Case fields should not require unnecessary priority recalculation.
+Business Logic
+Use the following exact mapping:
+Case Origin
+Case Priority
+Phone
+High
+Any other value
+Medium
+Blank / Null
+Medium
+Logic
+If:
+Origin = 'Phone'
+Set:
+Priority = 'High'
+Otherwise:
+Set:
+Priority = 'Medium'
+Use exact value matching.
+Validations
+Scenario 1 — Phone Case
+Create a Case with:
+Origin = Phone
+Expected:
+Priority = High
+Scenario 2 — Email Case
+Create a Case with:
+Origin = Email
+Expected:
+Priority = Medium
+Scenario 3 — Web Case
+Create a Case with:
+Origin = Web
+Expected:
+Priority = Medium
+Scenario 4 — Blank Origin
+Create a Case without Case Origin.
+Expected:
+Priority = Medium
+Scenario 5 — Change Origin to Phone
+Existing Case:
+Origin = Email
+Priority = Medium
+Change:
+Origin = Phone
+Expected:
+Priority = High
+Scenario 6 — Change Origin from Phone
+Existing Case:
+Origin = Phone
+Priority = High
+Change:
+Origin = Email
+Expected:
+Priority = Medium
+Scenario 7 — Unrelated Field Update
+Existing Case:
+Origin = Phone
+Priority = High
+Update only an unrelated field such as:
+Subject
+Expected:
+Priority remains High.
+Error Handling
+No custom error message is required.
+If Case Origin is blank or contains any value other than Phone, the Flow must safely set:
+Priority = Medium
+The Flow must not block Case creation or update.
+Edge Cases
+Existing Cases should not be mass updated as part of this ticket.
+If new Case Origin values are added in the future, they should default to Medium.
+The Flow must not create additional Case records.
+The Flow must not update related records.
+Do not create Apex.
+Do not create new fields.
+Do not create validation rules.
+Acceptance Criteria
+A Record-Triggered Flow exists on the Case object.
+Flow Label is Case - Set Priority from Origin.
+The Flow runs on Case creation.
+The Flow evaluates Case Origin changes on update.
+The Flow is configured as a before-save / Fast Field Updates Flow.
+Origin = Phone results in Priority = High.
+Any other Origin results in Priority = Medium.
+Blank Origin results in Priority = Medium.
+Changing Origin to Phone changes Priority to High.
+Changing Origin from Phone to another value changes Priority to Medium.
+No Apex class or trigger is created.
+No custom object is created.
+No custom field is created.
+No unrelated Case configuration is modified.
+The Flow is activated after successful validation.
+Dependencies
+Access to the standard Case object.
+Standard Case fields Origin and Priority must be available.
+Permission to create and activate Salesforce Flows.
+No dependency on any previous custom ticket or custom metadata is required.
+Out of Scope
+New custom objects
+New custom fields
+Apex classes
+Apex triggers
+Assignment Rules
+Email notifications
+Tasks
+Case Owner changes
+Case escalation
+SLA logic
+Entitlements
+External APIs
+Reports
+Dashboards
+Historical Case updates
+Developer Notes
+Preferred implementation:
+Before-Save Record-Triggered Flow
+Use the standard fields:
+Case.Origin
+Case.Priority
+Do not introduce any additional Salesforce metadata dependency.
+The Flow should directly assign the Priority value to the triggering Case record.
+Avoid unnecessary elements such as:
+Get Records
+Create Records
+Update Records
+Delete Records
+The implementation should remain limited to:
+Case Origin → Case Priority
+
+## Approved implementation plan
+
+Create and activate a before-save Record-Triggered Flow on Case that derives Priority from Origin. Phone Cases become High priority; every other or blank Origin becomes Medium, including when Origin changes on an existing Case.
+
+Add Salesforce Flow metadata at force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml. Configure it for Case creation and updates where Origin changes, use Fast Field Updates / before-save behavior, branch only on an exact Origin value of Phone, and assign the triggering record's Priority directly without queries, DML, Apex, or related-record work. Validate the metadata and exercise the requested create, change, blank, and unrelated-update scenarios in a Salesforce org before activation.
+
+- Inspect current org metadata: Before editing, retrieve the current Case field metadata and active automation inventory for Case, confirming that standard Case.Origin and Case.Priority are available and checking for existing flows, Process Builder/workflow automation, or triggers that could overlap with this priority behavior. Preserve unrelated configuration.
+- Create the Flow metadata: Create force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml with label Case - Set Priority from Origin, API name Case_Set_Priority_From_Origin, object Case, and a Record-Triggered Flow configured for Fast Field Updates (before save). Set it to run on create and on update only when Case.Origin changes, while ensuring new Cases are always evaluated.
+- Implement exact priority mapping: Use a Decision element that compares the triggering record's Origin exactly to Phone. In the Phone branch assign $Record.Priority = High; in the default branch assign $Record.Priority = Medium, which covers Email, Web, blank/null, and any future Origin values. Keep all assignments on $Record and include no Get Records, Create/Update/Delete Records, subflows, or fault-handling DML.
+- Validate source metadata: Run Salesforce metadata/source validation against the project using the existing source API version 67.0, verify the Flow XML parses and references only standard Case fields and valid picklist values, and confirm no Apex class, trigger, custom object, custom field, validation rule, or unrelated Case metadata was added.
+- Test required behavior: In a Salesforce test org, deploy the Flow as Draft and test: create Origin Phone => High; create Email => Medium; create Web => Medium; create with blank Origin => Medium; change Email/Medium to Phone => High; change Phone/High to Email => Medium; and update only Subject on a Phone/High Case => Priority remains High. Also confirm the Flow does not create records, update related records, or block saves.
+- Activate after validation: After all scenarios pass and the automation inventory shows no conflicting active automation, activate Case_Set_Priority_From_Origin. Confirm the active Flow label and entry behavior match the acceptance criteria and that existing Cases are not mass updated.
+
+Repository context:
+This is a Salesforce DX source-format project rooted at force-app, with sourceApiVersion 67.0. Existing tracked metadata is limited to Lead layout/profile/field files; there is no existing flows directory or Flow implementation to modify.
+
+Flow design constraints:
+The Flow must use only standard Case.Origin and Case.Priority, make a direct before-save assignment to $Record.Priority, and use the default path for every non-Phone value. No historical backfill or mass update is part of this ticket.
+
+Verification:
+Because the repository has no Jest or Apex test harness, validation is metadata validation plus org-level Flow tests for the seven acceptance scenarios. The implementation should be deployed as Draft first and activated only after those tests pass.
+
+Heads-up notes:
+An existing Case automation could also assign Priority or alter Origin, creating order-of-execution conflicts; the implementer must inspect the org automation inventory before activation. Standard Case Origin/Priority picklist values must remain available in the target org, especially Phone, High, and Medium.
+
+Out of scope:
+Historical Case updates, Apex classes or triggers, custom objects or fields, validation rules, assignment rules, notifications, tasks, owner/escalation/SLA/entitlement logic, external APIs, reports, dashboards, and unrelated Case configuration.
+e1efe88 feat: add lead priority field metadata
+force-app/main/default/layouts/Lead-Lead %28Sales%29 Layout.layout-meta.xml
+force-app/main/default/profiles/Admin.profile-meta.xml
+force-app/main/default/profiles/Custom%3A Sales Profile.profile-meta.xml
+force-app/main/default/objects/Lead/fields/Lead_Priority__c.field-meta.xml
+
+codex
+The ticket is a Salesforce before-save Flow, so I’m applying the loaded Salesforce Flow design guidance: no queries or DML in the flow, direct `$Record` assignments, and an automation-inventory check before activation.
+exec
+/bin/bash -lc "git switch -c feature/case-priority-from-origin && sed -n '1,160p' sfdx-project.json && sf org list --json && rg --files force-app/main/default | sort" in /workspace
+ exited 127 in 0ms:
+Switched to a new branch 'feature/case-priority-from-origin'
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "ag212-lead-priority",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "67.0"
+}
+/bin/bash: line 1: sf: command not found
+
+codex
+The local environment has no Salesforce CLI or authenticated org, so I can implement and source-validate the Flow here, but I cannot inspect or activate org automation or run the seven org scenarios. I’ll leave the metadata inactive for safe deployment-as-Draft validation.
+apply patch
+patch: completed
+/workspace/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc "xmllint --noout force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --check && rg -n '<(apex|processType|object|recordTriggerType|triggerType|filterFormula|assignToReference|stringValue|status)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git status --short" in /workspace
+ exited 127 in 0ms:
+/bin/bash: line 1: xmllint: command not found
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+codex
+The Flow source is in place. The usual local XML validator is also unavailable, so I’m checking it with the validation tools present and enforcing the ticket’s metadata-scope constraints before committing.
+exec
+/bin/bash -lc "command -v node; command -v ruby; command -v perl; command -v xmlstarlet; command -v git; git diff --check; rg -n '<(object|recordTriggerType|triggerType|filterFormula|assignToReference|stringValue|status)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml; git status --short" in /workspace
+ succeeded in 0ms:
+/usr/bin/node
+/usr/bin/perl
+/usr/bin/git
+10:            <assignToReference>$Record.Priority</assignToReference>
+13:                <stringValue>High</stringValue>
+23:            <assignToReference>$Record.Priority</assignToReference>
+26:                <stringValue>Medium</stringValue>
+46:                    <stringValue>Phone</stringValue>
+60:            <stringValue>LightningFlowBuilder</stringValue>
+66:            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+76:        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
+77:        <object>Case</object>
+78:        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+79:        <triggerType>RecordBeforeSave</triggerType>
+81:    <status>Draft</status>
+?? force-app/main/default/flows/
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc "perl -MXML::LibXML -e 'XML::LibXML->load_xml(location => shift)' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --check && "'! rg -n '"'<(recordUpdates|recordCreates|recordDeletes|actionCalls|subflows|apexPluginCall|apexClass)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --no-index /dev/null force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml || test "'$? -eq 1' in /workspace
+ exited 1 in 0ms:
+Can't locate XML/LibXML.pm in @INC (you may need to install the XML::LibXML module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl).
+BEGIN failed--compilation aborted.
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc 'npx --yes prettier --parser xml --check force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --check && ! rg -n '"'<(recordUpdates|recordCreates|recordDeletes|actionCalls|subflows|apexPluginCall|apexClass)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --no-index /dev/null force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml || test "'$? -eq 1' in /workspace
+ succeeded in 2678ms:
+Checking formatting...
+[error] Couldn't resolve parser "xml".
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc 'npx --yes xmllint --noout force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --check && ! rg -n '"'<(recordUpdates|recordCreates|recordDeletes|actionCalls|subflows|apexPluginCall|apexClass)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --no-index /dev/null force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml || test "'$? -eq 1' in /workspace
+ succeeded in 900ms:
+npm error could not determine executable to run
+npm error A complete log of this run can be found in: /home/agentuser/.npm/_logs/2026-09-11T12_48_17_073Z-debug-0.log
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc "perl -MXML::Parser -e 'XML::Parser->new->parsefile(shift)' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --check && "'! rg -n '"'<(recordUpdates|recordCreates|recordDeletes|actionCalls|subflows|apexPluginCall|apexClass)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git diff --no-index /dev/null force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml || test "'$? -eq 1' in /workspace
+ exited 1 in 0ms:
+Can't locate XML/Parser.pm in @INC (you may need to install the XML::Parser module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl).
+BEGIN failed--compilation aborted.
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc 'command -v php; command -v java; command -v go; command -v cargo; git diff --check; ! rg -n '"'<(recordUpdates|recordCreates|recordDeletes|actionCalls|subflows|apexPluginCall|apexClass)>' force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml; git diff --no-index /dev/null force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml || test "'$? -eq 1' in /workspace
+ succeeded in 0ms:
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000..7ddc021
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+codex
+Source checks confirm the Flow is limited to a before-save Case flow with only `$Record.Priority` assignments and no record operations, Apex, or subflows. Org deployment/activation remains blocked by the missing CLI and org connection, so the committed version is intentionally Draft.
+exec
+/bin/bash -lc "git status --short && git add force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml && git -c user.name='pipeline-agent' -c user.email='pipeline-agent@users.noreply.github.com' commit -m \"feat: add case priority origin flow\" && git status --short --branch && git log -1 --format='%h %an <%ae>%n%s'" in /workspace
+ succeeded in 0ms:
+?? force-app/main/default/flows/
+[feature/case-priority-from-origin d84fa5a] feat: add case priority origin flow
+ 1 file changed, 82 insertions(+)
+ create mode 100644 force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+## feature/case-priority-from-origin
+d84fa5a pipeline-agent <pipeline-agent@users.noreply.github.com>
+feat: add case priority origin flow
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+exec
+/bin/bash -lc 'git push -u origin feature/case-priority-from-origin && git status --short --branch' in /workspace
+ succeeded in 2278ms:
+remote: 
+remote: Create a pull request for 'feature/case-priority-from-origin' on GitHub by visiting:        
+remote:      https://github.com/Hari13-12/Maverick-Pipeline-Demo/pull/new/feature/case-priority-from-origin        
+remote: 
+To https://github.com/Hari13-12/Maverick-Pipeline-Demo.git
+ * [new branch]      feature/case-priority-from-origin -> feature/case-priority-from-origin
+branch 'feature/case-priority-from-origin' set up to track 'origin/feature/case-priority-from-origin'.
+## feature/case-priority-from-origin...origin/feature/case-priority-from-origin
+
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+codex
+Implemented and pushed the Case priority Flow.
+
+- Flow: [Case_Set_Priority_From_Origin.flow-meta.xml](/workspace/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml)
+- Commit: `d84fa5a feat: add case priority origin flow`
+- Exact pushed branch: `feature/case-priority-from-origin`
+
+The Flow is a Draft before-save Case flow: it evaluates creates and Origin changes, assigns High for `Phone`, and Medium otherwise.
+
+Source-scope checks passed (`git diff --check`; no Apex, DML, related-record, or subflow elements). Salesforce CLI/org access and local XML tooling were unavailable, so org inventory, deployment, seven scenario tests, and activation must be completed in a connected Salesforce environment. No pull request was opened.
+diff --git a/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..7ddc0214ffa38a2831fb11730ff4d257996ef760
+--- /dev/null
++++ b/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml
+@@ -0,0 +1,82 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
++    <apiVersion>67.0</apiVersion>
++    <assignments>
++        <name>Set_High_Priority</name>
++        <label>Set High Priority</label>
++        <locationX>50</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>High</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <assignments>
++        <name>Set_Medium_Priority</name>
++        <label>Set Medium Priority</label>
++        <locationX>300</locationX>
++        <locationY>300</locationY>
++        <assignmentItems>
++            <assignToReference>$Record.Priority</assignToReference>
++            <operator>Assign</operator>
++            <value>
++                <stringValue>Medium</stringValue>
++            </value>
++        </assignmentItems>
++    </assignments>
++    <decisions>
++        <name>Is_Phone_Origin</name>
++        <label>Is Phone Origin?</label>
++        <locationX>176</locationX>
++        <locationY>200</locationY>
++        <defaultConnector>
++            <targetReference>Set_Medium_Priority</targetReference>
++        </defaultConnector>
++        <defaultConnectorLabel>Not Phone</defaultConnectorLabel>
++        <rules>
++            <name>Phone</name>
++            <conditionLogic>and</conditionLogic>
++            <conditions>
++                <leftValueReference>$Record.Origin</leftValueReference>
++                <operator>EqualTo</operator>
++                <rightValue>
++                    <stringValue>Phone</stringValue>
++                </rightValue>
++            </conditions>
++            <connector>
++                <targetReference>Set_High_Priority</targetReference>
++            </connector>
++            <label>Phone</label>
++        </rules>
++    </decisions>
++    <interviewLabel>Case - Set Priority from Origin {!$Flow.CurrentDateTime}</interviewLabel>
++    <label>Case - Set Priority from Origin</label>
++    <processMetadataValues>
++        <name>BuilderType</name>
++        <value>
++            <stringValue>LightningFlowBuilder</stringValue>
++        </value>
++    </processMetadataValues>
++    <processMetadataValues>
++        <name>CanvasMode</name>
++        <value>
++            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
++        </value>
++    </processMetadataValues>
++    <processType>AutoLaunchedFlow</processType>
++    <start>
++        <locationX>176</locationX>
++        <locationY>0</locationY>
++        <connector>
++            <targetReference>Is_Phone_Origin</targetReference>
++        </connector>
++        <filterFormula>OR(ISNEW(), ISCHANGED({!$Record.Origin}))</filterFormula>
++        <object>Case</object>
++        <recordTriggerType>CreateAndUpdate</recordTriggerType>
++        <triggerType>RecordBeforeSave</triggerType>
++    </start>
++    <status>Draft</status>
++</Flow>
+
+tokens used
+67,808
+AGENT
+Implemented and pushed the Case priority Flow.
+
+- Flow: [Case_Set_Priority_From_Origin.flow-meta.xml](/workspace/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml)
+- Commit: `d84fa5a feat: add case priority origin flow`
+- Exact pushed branch: `feature/case-priority-from-origin`
+
+The Flow is a Draft before-save Case flow: it evaluates creates and Origin changes, assigns High for `Phone`, and Medium otherwise.
+
+Source-scope checks passed (`git diff --check`; no Apex, DML, related-record, or subflow elements). Salesforce CLI/org access and local XML tooling were unavailable, so org inventory, deployment, seven scenario tests, and activation must be completed in a connected Salesforce environment. No pull request was opened.
+TIME
+coding agent exec: 121391 ms
+STEP
+← run_codex: exit_code: 0
+stdout:
+Implemented and pushed the Case priority Flow.
+
+- Flow: [Case_Set_Priority_From_Origin.flow-meta.xml](/workspace/force-app/main/default/flows/Case_Set_Priority_From_Origin.flow-meta.xml)
+- Commit: `d84fa5a feat: add case priority origin flow`
+- Exact pushed branch: `feature/case-priority-from-origin`
+
+The Flow is a Draft before-save Case flow: it evaluates creates and Origin …
+STEP
+→ run_command(command=git status --short)
+STEP
+→ run_command(command=git log --oneline -n 5)
+STEP
+→ run_command(command=git branch --show-current)
+STEP
+← run_command: exit_code: 0
+STEP
+← run_command: exit_code: 0
+stdout:
+d84fa5a feat: add case priority origin flow
+e1efe88 feat: add lead priority field metadata
+STEP
+← run_command: exit_code: 0
+stdout:
+feature/case-priority-from-origin
+STEP
+The branch `feature/case-priority-from-origin` was successfully pushed.
+STEP
+Opening pull request for branch feature/case-priority-from-origin
+TIME
+open pull request: 2453 ms
+STEP
+Could not open a pull request: pull request create failed: GraphQL: Head sha can't be blank, Base sha can't be blank, No commits between main and feature/case-priority-from-origin, Base ref must be a branch (createPullRequest)

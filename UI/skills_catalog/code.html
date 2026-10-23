@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline": "#737686",
+          "background": "#f8f9ff",
+          "surface-dim": "#cbdbf5",
+          "on-secondary": "#ffffff",
+          "on-primary-fixed-variant": "#003ea8",
+          "secondary-container": "#8a4cfc",
+          "on-primary": "#ffffff",
+          "surface-container-lowest": "#ffffff",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed": "#eaddff",
+          "surface-bright": "#f8f9ff",
+          "on-tertiary-fixed-variant": "#004b73",
+          "inverse-surface": "#213145",
+          "surface-variant": "#d3e4fe",
+          "tertiary": "#005a89",
+          "on-tertiary": "#ffffff",
+          "on-error-container": "#93000a",
+          "error": "#ba1a1a",
+          "primary": "#004ac6",
+          "inverse-primary": "#b4c5ff",
+          "on-primary-container": "#eeefff",
+          "secondary-fixed-dim": "#d2bbff",
+          "surface-container-high": "#dce9ff",
+          "surface-container": "#e5eeff",
+          "inverse-on-surface": "#eaf1ff",
+          "on-tertiary-container": "#e7f2ff",
+          "error-container": "#ffdad6",
+          "surface-tint": "#0053db",
+          "primary-container": "#2563eb",
+          "on-secondary-fixed-variant": "#5a00c6",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#d3e4fe",
+          "on-primary-fixed": "#00174b",
+          "primary-fixed-dim": "#b4c5ff",
+          "tertiary-fixed-dim": "#93ccff",
+          "outline-variant": "#c3c6d7",
+          "tertiary-container": "#0073ae",
+          "on-secondary-container": "#fffbff",
+          "on-surface": "#0b1c30",
+          "on-surface-variant": "#434655",
+          "on-secondary-fixed": "#25005a",
+          "secondary": "#712ae2",
+          "on-background": "#0b1c30",
+          "surface": "#f8f9ff",
+          "on-tertiary-fixed": "#001d31",
+          "tertiary-fixed": "#cce5ff",
+          "surface-container-low": "#eff4ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-lg": "16px",
+          "gutter": "12px",
+          "space-xs": "4px",
+          "space-md": "12px",
+          "inspector-width": "380px",
+          "space-xl": "20px",
+          "space-sm": "8px",
+          "sidebar-expanded": "240px",
+          "space-2xs": "2px",
+          "sidebar-collapsed": "48px",
+          "space-2xl": "24px",
+          "space-3xl": "32px"
+        },
+        "fontFamily": {
+          "mono-xs": ["JetBrains Mono"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-sm": ["Inter"],
+          "mono-md": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-sm": ["Inter"],
+          "mono-sm": ["JetBrains Mono"]
+        },
+        "fontSize": {
+          "mono-xs": ["10px", {"lineHeight": "14px", "letterSpacing": "0em", "fontWeight": "500"}],
+          "body-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+          "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-md": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "mono-md": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "headline-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "mono-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+        }
+      }
+    }
+  };</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-sidebar-expanded bg-surface-container-low z-40 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-14 px-space-md flex items-center justify-between bg-surface-container-low"><div class="flex items-center gap-space-sm"><img alt="Maverick Agent Pipeline Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X3LI9T7BP7lvUnwQ9Bzr6dLKIWbjLB3s-whXCiJ0NCplB9SqQk2L_hq1o1zRiYesk5UW16ZQLTqHaHcrI-sNezK2ejgMoAAjG7quu8z-KAgzU2a5xW07mmgxBj54N1B-qV5r4phpr_9F_R5enRBC0xMk7AZ1_dqK190d9XE0hH59xRVNaW2F6v_CLR-w3_o_KbG54B9GNJZBu3Bh2SMd7Tp5zS0LFlhLVkVsNhxmtcIBNZmR19HIF5-Q"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Maverick</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Pipeline</span></div></div><span class="px-space-xs py-space-2xs bg-surface-variant font-mono-xs text-mono-xs text-on-surface font-medium rounded-lg">v2.4</span></div><div class="px-space-md py-space-sm"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface rounded-xl shadow-[0_1px_4px_rgba(0,0,0,0.02)]"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-primary text-[18px]">corporate_fare</span><div class="flex flex-col truncate"><span class="font-label-sm text-label-sm text-on-surface font-medium truncate">Acme Global Delivery</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">Enterprise Prod</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[16px]">unfold_more</span></div></div><nav class="flex flex-col gap-space-2xs px-space-sm mt-space-xs" data-active-classes="bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]"><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-label-md text-label-md">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="projects" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">layers</span><span class="font-label-md text-label-md">Projects</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">6</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ticket-browser" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">fact_check</span><span class="font-label-md text-label-md">Ticket Browser</span></div><span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-mono-xs text-mono-xs rounded">14</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="pipeline-runs" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">alt_route</span><span class="font-label-md text-label-md">Pipeline Runs</span></div><div class="flex items-center gap-space-2xs px-space-xs py-space-2xs bg-surface-variant rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span><span class="font-mono-xs text-mono-xs text-primary">3</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-xl transition-colors bg-primary-container text-on-primary font-medium shadow-[0_1px_4px_rgba(0,0,0,0.08)]" data-path="skills-catalog" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">neurology</span><span class="font-label-md text-label-md">Skills Catalog</span></div><span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded">2</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="connections" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-label-md text-label-md">Connections</span></div><span class="w-2 h-2 rounded-full bg-tertiary-container"></span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings-audit" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">security</span><span class="font-label-md text-label-md">Settings / Audit</span></div></a></nav></div><div class="p-space-sm flex flex-col gap-space-xs bg-surface-container"><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[14px]">terminal</span><span class="font-mono-xs text-mono-xs text-on-surface">SFDX & Codex</span></div><span class="font-mono-xs text-mono-xs text-on-surface-variant">v4.1</span></div><div class="flex items-center justify-between px-space-xs py-space-2xs bg-surface-container-lowest rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary text-[14px]">database</span><span class="font-mono-xs text-mono-xs text-on-surface">Vector Store</span></div><span class="font-mono-xs text-mono-xs text-tertiary font-medium">Synced</span></div><div class="pt-space-xs flex items-center justify-between text-on-surface-variant px-space-xs"><div class="flex items-center gap-space-2xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Operational</span></div><a class="font-label-sm text-label-sm hover:text-on-surface" href="#">Docs</a></div></div></aside><div class="pl-sidebar-expanded"><header class="fixed top-0 left-sidebar-expanded right-0 h-14 bg-surface/80 backdrop-blur-xl z-30 flex items-center justify-between px-space-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant"><span class="text-on-surface font-medium">Maverick</span><span class="text-outline-variant">/</span><span class="text-on-surface">Console</span></div><div class="flex items-center gap-space-sm px-space-sm py-1 bg-surface-container-low rounded-xl text-on-surface-variant"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-body-sm text-body-sm text-on-surface-variant">Search tickets, runs, PRs...</span><kbd class="font-mono-xs text-mono-xs bg-surface px-space-xs py-space-2xs rounded text-on-surface-variant">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-high rounded-xl"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span><span class="font-label-sm text-label-sm text-on-surface font-medium">2 Active Runs</span><span class="font-mono-xs text-mono-xs text-on-surface-variant">· $14.28 est</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-[0_1px_4px_rgba(37,99,235,0.2)]" type="button"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Start Pipeline Run</span></button><button class="p-space-xs text-on-surface-variant hover:text-on-surface rounded-lg relative hover:bg-surface-container-high transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_1px_4px_rgba(0,0,0,0.06)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqebjczDE5fgYNndNkNdGB8S-a3Z7rXVtrAZDnMCXt7HoWGAkfCfMJ3LdzAdIDxaonGmM5X0ioj9SorhsEXsKcbo8BO6tX1lFxXv_C8FGcQYj66sg6j9rkmdS-zDx5mxPAExIpXCzyRe48GDItvTehm6Yg5Pwk8N_x4cAyQbOruI_SIK-euVgOlcjSNZxFKLlDZbdhVZvodMIW1o6X4LqUnoWa3jrm4ig8__Pcd69DhJQEqbfthupj"/><div class="hidden md:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-none">Elena Rostova</span><span class="font-mono-xs text-mono-xs text-on-surface-variant leading-tight">Staff AI Lead</span></div></div></div></header><main class="w-full pt-14 px-space-2xl bg-background min-h-screen"><div class="flex flex-col w-full pb-space-3xl gap-space-xl">
+<!-- Top Header with Precision Metadata & Live Stats -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pt-space-lg">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-space-2xs bg-secondary-fixed text-on-secondary-fixed font-mono-xs text-mono-xs rounded-md">CAPABILITIES REGISTRY</span>
+<span class="font-mono-xs text-mono-xs text-outline">·</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">SANDBOX-ORCHESTRATION-V2</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-semibold">Skills Catalog</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Modular agent capabilities, execution toolsets, and domain skills for deterministic planning, static analysis, and code synthesis.
+      </p>
+</div>
+<!-- Summary Counters Strip -->
+<div class="flex items-center gap-space-sm bg-surface-container-lowest p-space-xs rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-low rounded-lg">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-error-container/30 rounded-lg">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-headline-sm text-headline-sm text-error font-semibold">2</span>
+<span class="font-label-sm text-label-sm text-on-error-container">Pending Review</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-tertiary">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Attached to Lead Console</span>
+</div>
+</div>
+</div>
+<!-- Dual Provisioning Action Panels (Side-by-side Bento) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Panel A: Manual Creation & Upload with Live Interactive Inspector -->
+<div class="xl:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-semibold">
+<span class="material-symbols-outlined text-[18px]">build_circle</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Author or Upload Skill</div>
+<div class="font-mono-xs text-mono-xs text-on-surface-variant">SKILL.md spec v1.2 with frontmatter schema</div>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-surface-container text-on-surface-variant font-mono-xs text-mono-xs rounded">LOCAL_STAGING</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-all shadow-sm" id="btn-create-manual" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Create Skill Manually</span>
+</button>
+<label class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded-xl font-label-md text-label-md font-medium cursor-pointer transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+<span>Upload (.md, .txt, .zip)</span>
+<input accept=".md,.txt,.zip" class="hidden" id="skill-file-input" type="file"/>
+</label>
+<span class="font-mono-xs text-mono-xs text-outline-variant pl-space-xs">Max 4MB archive</span>
+</div>
+<!-- Interactive Spec Editor / Live Preview Drawer -->
+<div class="mt-space-sm bg-inverse-surface rounded-lg p-space-md font-mono-xs text-mono-xs text-inverse-on-surface flex flex-col gap-space-sm shadow-inner">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest/10">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">code</span>
+<span class="text-tertiary-fixed-dim font-medium">SKILL.md Stage Preview:</span>
+<span class="text-surface-variant">apex-governor-guard.md</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span class="font-mono-xs text-mono-xs text-inverse-on-surface/70">YAML Verified</span>
+<button class="text-inverse-on-surface/60 hover:text-inverse-on-surface p-space-2xs" onclick="navigator.clipboard.writeText('---
+name: apex-governor-guard
+version: 1.0.0
+sandbox_isolated: true
+---')" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="space-y-1 text-slate-300 leading-relaxed max-h-36 overflow-y-auto">
+<p><span class="text-rose-400">---</span></p>
+<p><span class="text-sky-300">name:</span> apex-governor-limit-auditor</p>
+<p><span class="text-sky-300">version:</span> 1.2.0-rc3</p>
+<p><span class="text-sky-300">runtime:</span> node20-isolated-vm</p>
+<p><span class="text-sky-300">permissions:</span> [metadata.read, tooling.apex.executeAnonymous]</p>
+<p><span class="text-rose-400">---</span></p>
+<p class="text-amber-200/80"># Evaluates SOQL query depth within loops & DML governor budget</p>
+<p class="text-slate-400">export default async function execute({ ast, limits }) { ... }</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container-highest/10">
+<span class="font-mono-xs text-mono-xs text-surface-variant/80">Validation: 0 Errors · 1 AST Parameter</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-highest/20 hover:bg-surface-container-highest/40 text-inverse-on-surface rounded font-mono-xs text-mono-xs transition-colors" type="button">Test AST Run</button>
+<button class="px-space-sm py-1 bg-primary-container text-on-primary rounded font-mono-xs text-mono-xs font-semibold hover:bg-primary transition-colors" type="button">Commit to Staging</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel B: Import from Remote Ecosystem -->
+<div class="xl:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg flex flex-col justify-between shadow-sm">
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary font-semibold">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Import from Git Ecosystem</div>
+<div class="font-mono-xs text-mono-xs text-on-surface-variant">Sync and verify third-party agent bundles</div>
+</div>
+</div>
+<span class="px-space-xs py-space-2xs bg-surface-container text-on-surface-variant font-mono-xs text-mono-xs rounded">GH_SYNC</span>
+</div>
+<!-- Repository URL and Fetch Row -->
+<div class="flex items-center gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-[16px] text-outline">source</span>
+<input class="w-full pl-space-xl pr-space-sm py-1.5 bg-surface-container-low text-on-surface rounded-xl font-mono-xs text-mono-xs focus:outline-none focus:bg-surface-container-lowest transition-all shadow-inner" id="repo-input" type="text" value="https://github.com/maverick-ai/engineering-skills-ecosystem"/>
+</div>
+<button class="px-space-md py-1.5 bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md font-medium rounded-xl flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_sync</span>
+<span>Search Repository</span>
+</button>
+</div>
+<!-- Discovered Ecosystem Filter and Batch Controls -->
+<div class="flex items-center justify-between gap-space-sm bg-surface-container-low p-space-xs rounded-xl">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-xs top-1/2 -translate-y-1/2 text-[14px] text-outline">filter_alt</span>
+<input class="w-full pl-space-lg pr-space-xs py-1 bg-transparent text-on-surface font-body-sm text-body-sm focus:outline-none placeholder-outline" placeholder="Filter discovered skills by name, slug, or tag..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm">
+<label class="flex items-center gap-space-2xs font-label-sm text-label-sm text-on-surface cursor-pointer select-none">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Select visible (4)</span>
+</label>
+<button class="px-space-sm py-1 bg-secondary text-on-secondary rounded-lg font-label-sm text-label-sm font-medium hover:bg-secondary-container transition-colors shadow-sm" type="button">
+              Import Selected (4)
+            </button>
+</div>
+</div>
+<!-- Discovered Skills Micro-table -->
+<div class="flex flex-col gap-space-2xs">
+<!-- Row 1 -->
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface truncate">salesforce-flow-visualizer</span>
+<span class="px-1 bg-surface-container-high text-on-surface-variant font-mono-xs text-mono-xs rounded">v2.4.0</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Deconstructs Flow XML into deterministic Mermaid DAG diagrams.</span>
+</div>
+</div>
+<button class="px-space-sm py-1 bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-sm text-label-sm font-medium rounded transition-colors ml-space-sm" type="button">
+              Import
+            </button>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center justify-between p-space-xs bg-surface-container-low hover:bg-surface-container rounded-lg transition-colors">
+<div class="flex items-center gap-space-sm min-w-0">
+<input checked="" class="rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface truncate">lwc-jest-coverage-patcher</span>
+<span class="px-1 bg-surface-container-high text-on-surface-variant font-mono-xs text-mono-xs rounded">v1.1.2</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Generates mock wire adapters and wire snapshot tests automatically.</span>
+</div>
+</div>
+<button class="px-space-sm py-1 bg-surface-container-lowest hover:bg-surface-bright text-primary font-label-sm text-label-sm font-medium rounded transition-colors ml-space-sm" type="button">
+              Import
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Prominent Pending Human Review & Security Governance Banner -->
+<div class="bg-error-container/20 rounded-xl p-space-md flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Human Review & Security Verification Required</h2>
+<span class="px-space-xs py-space-2xs bg-error text-on-error font-mono-xs text-mono-xs rounded-md font-semibold">2 POLICIES PENDING</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The following skills request high-risk sandbox or metadata mutation capabilities. An administrator must audit AST and approve before enabling inside automated agent loops.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-mono-xs text-mono-xs text-on-surface-variant bg-surface-container-lowest px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-[14px] text-tertiary">shield</span>
+<span>Enforce Org Policy: Strict-AST-2024</span>
+</div>
+</div>
+<!-- Review Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Pending Skill Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-mono-md text-mono-md font-semibold text-on-surface">apex-destructive-changes-guard</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Origin: External PR #12 · commit: 7a8df0b</span>
+</div>
+<span class="px-space-xs py-space-2xs bg-error-container text-on-error-container font-mono-xs text-mono-xs rounded font-medium">Risk: High</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            Inspects and blocks unvalidated destructiveChanges.xml manifest nodes before deployment passes to Salesforce Ant/Metadata engine.
+          </p>
+<div class="flex items-center gap-space-md pt-space-2xs font-mono-xs text-mono-xs text-outline">
+<span>Payload Size: 18.4 KB</span>
+<span>·</span>
+<span>Requested Scope: destructiveChangesPre</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container">
+<div class="flex items-center gap-space-2xs text-amber-700">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span class="font-mono-xs text-mono-xs font-medium">Pending Admin Sign-off</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded font-label-sm text-label-sm font-medium transition-colors" type="button">
+              Review Code
+            </button>
+<button class="px-space-sm py-1 bg-error-container hover:bg-error hover:text-on-error text-on-error-container rounded font-label-sm text-label-sm font-medium transition-colors" type="button">
+              Reject
+            </button>
+<button class="px-space-sm py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm font-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+              Approve Skill
+            </button>
+</div>
+</div>
+</div>
+<!-- Pending Skill Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-mono-md text-mono-md font-semibold text-on-surface">salesforce-bulk-data-seeder</span>
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Origin: Ecosystem import · repo: maverick-ai/engineering-skills-ecosystem</span>
+</div>
+<span class="px-space-xs py-space-2xs bg-amber-100 text-amber-900 font-mono-xs text-mono-xs rounded font-medium">Risk: Medium</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+            Injects randomized deterministic Account, Contact, and Case records via Salesforce Bulk API 2.0 to prepare test staging orgs.
+          </p>
+<div class="flex items-center gap-space-md pt-space-2xs font-mono-xs text-mono-xs text-outline">
+<span>Payload Size: 42.1 KB</span>
+<span>·</span>
+<span>Requested Scope: Bulk API 2.0 Write</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs border-t border-surface-container">
+<div class="flex items-center gap-space-2xs text-amber-700">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span>
+<span class="font-mono-xs text-mono-xs font-medium">Awaiting Lead Architect</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-surface-variant text-on-surface rounded font-label-sm text-label-sm font-medium transition-colors" type="button">
+              Inspect Manifest
+            </button>
+<button class="px-space-sm py-1 bg-surface-container-high hover:bg-error-container hover:text-on-error-container text-on-surface rounded font-label-sm text-label-sm font-medium transition-colors" type="button">
+              Deny
+            </button>
+<button class="px-space-sm py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm font-medium hover:bg-primary-container transition-colors shadow-sm" type="button">
+              Approve
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main High-Density Catalog List Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Filter & View Controls -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-[16px] text-outline">search</span>
+<input class="w-full pl-space-xl pr-space-md py-1.5 bg-surface-container-low rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest shadow-inner placeholder-outline" placeholder="Search active skills by slug, keyword, capability, or tag..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto">
+<span class="font-label-sm text-label-sm text-outline px-space-xs">Filter:</span>
+<button class="px-space-sm py-1 bg-surface-container text-on-surface font-label-sm text-label-sm rounded-lg font-medium" type="button">All (18)</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-lg transition-colors" type="button">Verified Core</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-lg transition-colors" type="button">Attached (4)</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded-lg transition-colors" type="button">High Risk (2)</button>
+</div>
+</div>
+<!-- Table Canvas -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left text-body-sm text-body-sm border-collapse">
+<thead class="bg-surface-container-low text-outline font-label-sm text-label-sm select-none">
+<tr>
+<th class="py-space-sm px-space-md font-medium">Slug</th>
+<th class="py-space-sm px-space-md font-medium">Name & Capability Scope</th>
+<th class="py-space-sm px-space-md font-medium">Version</th>
+<th class="py-space-sm px-space-md font-medium">Origin</th>
+<th class="py-space-sm px-space-md font-medium">Risk Signal</th>
+<th class="py-space-sm px-space-md font-medium">Project Attachment</th>
+<th class="py-space-sm px-space-md font-medium">Status</th>
+<th class="py-space-sm px-space-md font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1: salesforce-lwc-generator -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">salesforce-lwc-generator</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">Salesforce LWC Generator</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Generates standards-compliant Lightning Web Components with SLDS CSS, Jest unit tests, and wire adapters.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v1.4.2</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Verified Maverick Core</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-emerald-50 text-emerald-800 font-mono-xs text-mono-xs rounded font-medium">Low Risk (Sandboxed)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded font-medium">Attached: Implementation Only</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-emerald-700 font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Test Run" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: apex-test-suite-runner -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">apex-test-suite-runner</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">Apex Test Suite Runner</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Orchestrates Tooling API Apex test runs, computes class code coverage delta, and asserts minimum 75% guardrail.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v2.1.0</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Verified Maverick Core</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-amber-50 text-amber-800 font-mono-xs text-mono-xs rounded font-medium">Medium (Schema Read)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm rounded font-medium">Attached: Planning & Implementation</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-emerald-700 font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Test Run" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: jira-ticket-parser -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">integration_instructions</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">jira-ticket-parser</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">Jira Ticket Context Extractor</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Pulls user stories, acceptance criteria, and linked confluence design docs into pipeline prompt memory.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v1.0.8</td>
+<td class="py-space-sm px-space-md">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">acme-eng/internal-skills</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-emerald-50 text-emerald-800 font-mono-xs text-mono-xs rounded font-medium">Low Risk (Sandboxed)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm rounded font-medium">Attached: Planning & Implementation</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-emerald-700 font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Test Run" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: github-pr-automator -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">alt_route</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">github-pr-automator</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">GitHub Pull Request Automator</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Creates feature branches, commits multi-file SFDX bundles, and publishes detailed review PR summaries.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v3.0.1</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Verified Maverick Core</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-rose-50 text-rose-800 font-mono-xs text-mono-xs rounded font-medium">High (Write to Sandbox)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-surface-container text-outline font-label-sm text-label-sm rounded font-medium">Unattached</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-emerald-700 font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-primary hover:text-primary-container" title="Attach to Project" type="button">
+<span class="material-symbols-outlined text-[16px]">add_link</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: soql-query-optimizer -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">manage_search</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">soql-query-optimizer</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">SOQL Query Optimizer</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Analyzes WHERE clauses against standard custom indexes to eliminate non-selective query runtime errors.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v1.2.4</td>
+<td class="py-space-sm px-space-md">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">Community Ecosystem</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-amber-50 text-amber-800 font-mono-xs text-mono-xs rounded font-medium">Medium (Schema Read)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-surface-container-high text-on-surface font-label-sm text-label-sm rounded font-medium">Attached: Implementation Only</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-emerald-700 font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Active</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Test Run" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: custom-metadata-cache -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">storage</span>
+<span class="font-mono-xs text-mono-xs font-semibold text-on-surface">custom-metadata-cache</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md max-w-sm">
+<div class="font-body-md text-body-md font-medium text-on-surface truncate">Custom Metadata Type Cache</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Pre-computes and caches CMDT records using OrgCache to circumvent SOQL limit consumption in bulk contexts.</div>
+</td>
+<td class="py-space-sm px-space-md font-mono-xs text-mono-xs text-on-surface">v0.9.1</td>
+<td class="py-space-sm px-space-md">
+<span class="font-mono-xs text-mono-xs text-on-surface-variant">acme-eng/internal-skills</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-surface-container text-on-surface-variant font-mono-xs text-mono-xs rounded font-medium">Low Risk (Sandboxed)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-xs py-space-2xs bg-surface-container text-outline font-label-sm text-label-sm rounded font-medium">Unattached</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-2xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Deprecated</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="flex items-center justify-end gap-space-2xs opacity-90 group-hover:opacity-100">
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="Configure" type="button">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-outline hover:text-on-surface" title="View Source" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination and Density Footer -->
+<div class="p-space-sm bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-md text-outline font-mono-xs text-mono-xs">
+<span>Displaying 6 of 18 Registered Skills</span>
+<span>·</span>
+<span>Runtime Isolation: gVisor container runtime</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 bg-surface-container-low text-outline rounded font-label-sm text-label-sm cursor-not-allowed" disabled="" type="button">Previous</button>
+<button class="px-space-sm py-1 bg-primary text-on-primary rounded font-label-sm text-label-sm" type="button">1</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded font-label-sm text-label-sm transition-colors" type="button">2</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded font-label-sm text-label-sm transition-colors" type="button">3</button>
+<button class="px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded font-label-sm text-label-sm transition-colors" type="button">Next</button>
+</div>
+</div>
+</div>
+<!-- Interactive Modal / Slide-in Drawer for 'Create Skill Manually' (Hidden by default) -->
+<div class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-space-md" id="create-modal">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-xl shadow-2xl p-space-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Author New Modular Skill</h3>
+<p class="font-mono-xs text-mono-xs text-on-surface-variant">Compile dynamic parameters & execution toolset</p>
+</div>
+</div>
+<button class="p-space-xs text-outline hover:text-on-surface rounded-lg" id="btn-close-modal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="grid grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm font-medium text-on-surface">Skill Slug</label>
+<input class="px-space-sm py-1.5 bg-surface-container-low rounded-xl text-on-surface font-mono-xs text-mono-xs focus:outline-none focus:bg-surface-container-lowest shadow-inner" placeholder="e.g. apex-trigger-handler-factory" type="text"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm font-medium text-on-surface">Semantic Version</label>
+<input class="px-space-sm py-1.5 bg-surface-container-low rounded-xl text-on-surface font-mono-xs text-mono-xs focus:outline-none focus:bg-surface-container-lowest shadow-inner" type="text" value="1.0.0"/>
+</div>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-sm text-label-sm font-medium text-on-surface">Short Summary & Intent</label>
+<input class="px-space-sm py-1.5 bg-surface-container-low rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-lowest shadow-inner" placeholder="Explain what this skill provides to the Maverick planner agent" type="text"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm font-medium text-on-surface">SKILL.md Definition</label>
+<span class="font-mono-xs text-mono-xs text-tertiary">Schema: Valid</span>
+</div>
+<textarea class="w-full p-space-sm bg-inverse-surface text-inverse-on-surface rounded-lg font-mono-xs text-mono-xs focus:outline-none" rows="6">---
+name: apex-trigger-handler-factory
+description: Auto-wires triggers to an enterprise one-trigger-per-object pattern
+inputs:
+  sObject: string
+  bypassCustomPermission: string
+permissions:
+  - org.schema.read
+---
+
+// Execution Prompt Body
+When an Apex trigger is synthesized, enforce framework bypass logic.</textarea>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+<span>Requires Human Review if permissions exceed standard sandboxing</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 bg-surface-container text-on-surface rounded-xl font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors" id="btn-cancel-modal" type="button">
+            Cancel
+          </button>
+<button class="px-space-md py-1.5 bg-primary-container text-on-primary rounded-xl font-label-md text-label-md font-medium hover:bg-primary transition-colors shadow-sm" id="btn-save-modal" type="button">
+            Register Skill
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Interaction Script -->
+<script>
+    (function() {
+      const modal = document.getElementById('create-modal');
+      const openBtn = document.getElementById('btn-create-manual');
+      const closeBtn = document.getElementById('btn-close-modal');
+      const cancelBtn = document.getElementById('btn-cancel-modal');
+      const saveBtn = document.getElementById('btn-save-modal');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      if (openBtn) openBtn.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          alert('Skill submitted for AST isolation inspection and verification.');
+          closeModal();
+        });
+      }
+
+      // Close on backdrop click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    })();
+  </script>
+</div></main></div></body></html>

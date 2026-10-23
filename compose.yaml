@@ -1,0 +1,18 @@
+services:
+  pipeline:
+    image: harikrishna1312/agent-pipeline-demo-final:latest
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file: .env
+    environment:
+      DATABASE_URL: sqlite:////data/agent_factory.db
+      PIPELINE_STORAGE_DIR: /data/storage
+      PIPELINE_AGENT_SANDBOX_IMAGE: harikrishna1312/agent-sandbox-2:latest
+      PIPELINE_AGENT_SANDBOX_IMAGE_SALESFORCE: harikrishna1312/agent-sandbox-salesforce-2:latest
+    volumes:
+      - pipeline-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+volumes:
+  pipeline-data:
